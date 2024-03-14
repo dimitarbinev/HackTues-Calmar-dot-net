@@ -33,7 +33,7 @@ public class ControllerImpl implements Controller {
     }
 
     @Override
-    public HttpStatus login( Entity credentials) {
+    public HttpStatus login(Entity credentials) {
         return service.login(credentials);
     }
 
