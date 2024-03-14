@@ -1,12 +1,12 @@
 function SignUpRedirect() {
 
-    window.location.href = '../../resources/static/templates/signUp.html';
+    window.location.href = '/templates/signUp.html';
   }
   
 
   function LogInRedirect() {
 
-    window.location.href = '../../resources/static/templates/logIn.html';
+    window.location.href = '/templates/logIn.html';
   }
   
 

@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface Repo extends CrudRepository <Entity, Integer> {
     boolean existsByUsername(String username);
+    boolean existsByPasswordHash(String passwordHash);
 }

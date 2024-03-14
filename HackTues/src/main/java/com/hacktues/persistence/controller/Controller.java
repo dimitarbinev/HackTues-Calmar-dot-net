@@ -13,7 +13,11 @@ public interface Controller {
 
     @RequestMapping
     @ResponseStatus(HttpStatus.OK)
-    ModelAndView showPage();
+    ModelAndView showMainPage();
+
+    @RequestMapping(value = "/login")
+    @ResponseStatus(HttpStatus.OK)
+    ModelAndView showLogin();
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     HttpStatus login(@RequestBody Entity credentials);

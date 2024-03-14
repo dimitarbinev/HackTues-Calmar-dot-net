@@ -16,8 +16,14 @@ public class ControllerImpl implements Controller {
     @Autowired
     private ServiceImpl service;
     @Override
-    public ModelAndView showPage() {
+    public ModelAndView showMainPage() {
         return service.showPage();
+    }
+
+    @Override
+    public ModelAndView showLogin() {
+        ModelAndView mav = new ModelAndView("login");
+        return mav;
     }
 
     @Override
@@ -26,7 +32,7 @@ public class ControllerImpl implements Controller {
     }
 
     @Override
-    public void register(Entity credentials) {
+    public void register(@RequestBody Entity credentials) {
         service.register(credentials);
     }
 

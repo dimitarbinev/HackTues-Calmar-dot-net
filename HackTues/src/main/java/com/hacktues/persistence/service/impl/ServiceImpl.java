@@ -21,7 +21,7 @@ public class ServiceImpl implements Service {
 
     @Override
     public HttpStatus login(Entity credentials) {
-        if (repo.existsByUsername(credentials.getUsername())) {
+        if (repo.existsByUsername(credentials.getUsername()) && repo.existsByPasswordHash(credentials.getPasswordHash())) {
             return HttpStatus.OK;
         } else {
             return HttpStatus.NOT_FOUND;
