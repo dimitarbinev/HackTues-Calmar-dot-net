@@ -5,6 +5,7 @@ import com.hacktues.persistence.model.Entity;
 import com.hacktues.persistence.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
@@ -20,7 +21,7 @@ public class ControllerImpl implements Controller {
     }
 
     @Override
-    public HttpStatus login(Entity credentials) {
+    public HttpStatus login( Entity credentials) {
         return service.login(credentials);
     }
 

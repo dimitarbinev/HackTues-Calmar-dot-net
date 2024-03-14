@@ -21,11 +21,10 @@ public class ServiceImpl implements Service {
 
     @Override
     public HttpStatus login(Entity credentials) {
-        Entity row = repo.findByUsername(credentials.getUsername()).get(0);
-        if (row != credentials) {
-            return HttpStatus.BAD_REQUEST;
-        } else {
+        if (repo.existsByUsername(credentials.getUsername())) {
             return HttpStatus.OK;
+        } else {
+            return HttpStatus.NOT_FOUND;
         }
     }
 
