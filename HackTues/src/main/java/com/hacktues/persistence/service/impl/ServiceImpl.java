@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.servlet.ModelAndView;
 
-@Slf4j
 @org.springframework.stereotype.Service
 public class ServiceImpl implements Service {
 
@@ -25,7 +24,6 @@ public class ServiceImpl implements Service {
     public HttpStatus login(Entity credentials) {
         Entity row = repo.findByUsername(credentials.getUsername());
         if (row != credentials) {
-            log.info("Incorrect credentials");
             return HttpStatus.BAD_REQUEST;
         } else {
             return HttpStatus.OK;
@@ -34,7 +32,6 @@ public class ServiceImpl implements Service {
 
     @Override
     public void register(Entity credentials) {
-        log.info("Registering...");
         repo.save(credentials);
     }
 }
