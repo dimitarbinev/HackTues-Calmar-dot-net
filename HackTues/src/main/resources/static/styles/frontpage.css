@@ -1,0 +1,47 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('desktop-wallpaper-gaming-background-gaming-cool-gaming-and-sick-gaming-cool-game.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+   }
+.navbar {
+    background-color: #333; overflow: hidden; position: relative; 
+   }
+.hamburger { 
+   display: block; color: white; text-align: center; padding: 14px 20px; text-decoration: none; cursor: pointer;
+}
+.navbar input[type=text] { 
+   float: right; padding: 6px; margin-top: 8px; margin-right: 16px; border: none; font-size: 17px; 
+}
+.hidden {
+    display: none;
+    }
+#dropdownMenu a {
+   display: block;
+   color: black;
+   padding: 12px;
+   text-decoration: none;
+   background-color: #f9f9f9;
+   border-bottom: 1px solid #ddd;
+}
+#dropdownMenu { 
+   position: absolute;
+   z-index: 1;
+   right: 0;
+   background-color: #f9f9f9;
+   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+   width: 200px;
+}
+#dropdownMenu a:hover { 
+   background-color: #f1f1f1; 
+}
+.game-selection { 
+   display: flex; flex-wrap: wrap; padding: 20px; 
+}
+.game {
+    flex: 1; padding: 10px; text-align: center; margin: 10px; border: 1px solid #ddd; border-radius: 4px; cursor: pointer;
+    }
+.game:hover { 
+   background-color: #f0f0f0;
+}

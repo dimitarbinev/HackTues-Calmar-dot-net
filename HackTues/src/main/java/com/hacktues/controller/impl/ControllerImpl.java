@@ -1,8 +1,8 @@
-package com.hacktues.persistence.controller.impl;
+package com.hacktues.controller.impl;
 
-import com.hacktues.persistence.controller.Controller;
-import com.hacktues.persistence.model.Entity;
-import com.hacktues.persistence.service.impl.ServiceImpl;
+import com.hacktues.controller.model.Credential;
+import com.hacktues.controller.Controller;
+import com.hacktues.persistence.service.impl.CredentialCredentialServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/api/hacktues")
 public class ControllerImpl implements Controller {
     @Autowired
-    private ServiceImpl service;
+    private CredentialCredentialServiceImpl service;
     @Override
     public ModelAndView showMainPage() {
         return service.showPage();
@@ -33,12 +33,12 @@ public class ControllerImpl implements Controller {
     }
 
     @Override
-    public HttpStatus login(Entity credentials) {
+    public HttpStatus login(Credential credentials) {
         return service.login(credentials);
     }
 
     @Override
-    public void register(@RequestBody Entity credentials) {
+    public void register(@RequestBody Credential credentials) {
         service.register(credentials);
     }
 

@@ -1,6 +1,6 @@
-package com.hacktues.persistence.controller;
+package com.hacktues.controller;
 
-import com.hacktues.persistence.model.Entity;
+import com.hacktues.controller.model.Credential;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,9 +24,9 @@ public interface Controller {
     ModelAndView showSignup();
 
     @RequestMapping(value = "/login", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    HttpStatus login(@RequestBody Entity credentials);
+    HttpStatus login(@RequestBody Credential credentials);
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    void register(Entity credentials);
+    void register(Credential credentials);
 }

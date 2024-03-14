@@ -1,12 +1,9 @@
 package com.hacktues.persistence.repo;
 
-import com.hacktues.persistence.model.Entity;
+import com.hacktues.persistence.model.CredentialEntity;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.List;
-
-public interface Repo extends CrudRepository <Entity, Integer> {
+public interface Repo extends CrudRepository <CredentialEntity, Integer> {
     boolean existsByUsername(String username);
     boolean existsByPassword(String password);
 }
