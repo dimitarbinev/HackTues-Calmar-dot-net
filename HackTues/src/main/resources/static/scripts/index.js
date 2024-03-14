@@ -1,8 +1,8 @@
 function SignUpRedirect() {
 
-    window.location.href = './templates/signUp.html';
+    window.location.href = '/api/hacktues/signup';
   }
-  
+
 
   function LogInRedirect() {
 

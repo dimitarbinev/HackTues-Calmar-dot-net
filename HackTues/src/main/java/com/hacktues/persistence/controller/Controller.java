@@ -19,6 +19,10 @@ public interface Controller {
     @ResponseStatus(HttpStatus.OK)
     ModelAndView showLogin();
 
+    @RequestMapping(value = "/signup")
+    @ResponseStatus(HttpStatus.OK)
+    ModelAndView showSignup();
+
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     HttpStatus login(@RequestBody Entity credentials);
 
