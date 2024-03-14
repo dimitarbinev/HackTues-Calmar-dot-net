@@ -26,6 +26,17 @@ body {
     font-size: 25px;
     cursor: pointer;
     text-decoration: none;
+    transition: all 0.3s ease;
+    outline: none;
+}
+.Mybuttons:hover{
+    background-color: transparent;
+    color: hsl(126, 90%, 58%);
+    border-color: hsl(126, 90%, 58%);
+    transform: scale(1.1)
+}
+.Mybuttons:active{
+    transform: scale(0.9);
 }
 #firstButton{
     width: 150px;
@@ -40,8 +51,5 @@ body {
     display: flex;
     flex-direction: row;
 }
-a{
-    text-decoration: none;
-    color: white;
-}
+
  
