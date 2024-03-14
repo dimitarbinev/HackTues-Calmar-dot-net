@@ -9,8 +9,16 @@ public class Entity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    public String getUsername() {
+        return username;
+    }
+
     @Column(nullable = false, unique = true)
     private String username;
+
+    public String getPasswordHash() {
+        return passwordHash;
+    }
 
     @Column(nullable = false)
     private String passwordHash;
