@@ -42,9 +42,3 @@ form.addEventListener('submit', function(event) {
     });
 });
 
-function animateSubmitButton() {
-    submitButton.style.transform = 'scale(0.8)';
-    setTimeout(() => {
-        submitButton.style.transform = 'scale(1)';
-    }, 200); // Duration of the scale back to normal size
-}

@@ -42,9 +42,3 @@ document.querySelector('form').addEventListener('submit', function(event) {
     }
 });
 
-function animateSubmitButton() {
-    submitButton.style.transform = 'scale(0.80)';
-    setTimeout(() => {
-        submitButton.style.transform = 'scale(1)';
-    }, 150);
-}
