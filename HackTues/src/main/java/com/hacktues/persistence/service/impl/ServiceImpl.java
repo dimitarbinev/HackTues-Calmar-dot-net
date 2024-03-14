@@ -3,7 +3,6 @@ package com.hacktues.persistence.service.impl;
 import com.hacktues.persistence.model.Entity;
 import com.hacktues.persistence.repo.Repo;
 import com.hacktues.persistence.service.Service;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.servlet.ModelAndView;
