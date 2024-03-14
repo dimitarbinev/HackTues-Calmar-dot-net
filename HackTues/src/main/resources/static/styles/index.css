@@ -6,7 +6,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('../../resources/static/images/dark-hexagonal-background-with-gradient-color_79603-1409.png');
+    background-image: url('/images/dark-hexagonal-background-with-gradient-color_79603-1409.png');
     background-size: cover; 
     background-position: center;
 }
