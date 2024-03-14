@@ -16,10 +16,10 @@ public class Entity {
     @Column(nullable = false, unique = true)
     private String username;
 
-    public String getPasswordHash() {
-        return passwordHash;
+    public String getPassword() {
+        return password;
     }
 
     @Column(nullable = false)
-    private String passwordHash;
+    private String password;
 }

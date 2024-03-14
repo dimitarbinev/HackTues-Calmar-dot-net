@@ -11,8 +11,8 @@ form.addEventListener('submit', function(event) {
     username: input.value,
     password: password.value,
   };
-
-  fetch('http://localhost:6969/api/hacktues', {
+    console.log(data);
+  fetch('http://localhost:6969/api/hacktues/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -28,7 +28,7 @@ form.addEventListener('submit', function(event) {
   .then(data => {
     console.log('Success:', data);
     if (data=='OK'){
-       window.location.href = '/templates/logIn.html';
+        window.location.href = '/api/hacktues/login';
     loginInvalid.classList.add('hidden');
     }
     else{

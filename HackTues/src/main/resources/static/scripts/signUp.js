@@ -24,7 +24,7 @@ addEventListener('submit', function(event) {
         };
 
         
-        fetch('your_json_file_url_here', {
+        fetch('http://localhost:6969/api/hacktues/signup', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
