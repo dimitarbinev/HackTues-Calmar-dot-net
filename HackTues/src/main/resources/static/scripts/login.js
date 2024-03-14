@@ -27,8 +27,14 @@ form.addEventListener('submit', function(event) {
   })
   .then(data => {
     console.log('Success:', data);
-    
+    if (data=='OK'){
+       window.location.href = '/templates/logIn.html';
     loginInvalid.classList.add('hidden');
+    }
+    else{
+    loginInvalid.classList.remove('hidden');
+    }
+
   })
   .catch((error) => {
     console.error('Error:', error);

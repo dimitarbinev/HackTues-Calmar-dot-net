@@ -1,29 +1,41 @@
 body{
 
-    /*background-image: url('/images/dark-hexagonal-background-with-gradient-color_79603-1409.png');
+    background-image: url('../images/c754daf0-40cb-457c-bd1e-0e1c040f0817.jpg');
     background-size: cover; 
     background-position: center; 
-    background-repeat: no-repeat; */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 
 }
 #formContainer{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 45vh;
+    height: 70vh;
 }
 #myForm{
 padding: 20px;
 border: 3px solid;
-border-radius: 15px;
-background-color: hsl(0, 0%, 60%);
+border-radius: 25px;
+background-color: hsla(0, 0%, 100%, 0.286);
+backdrop-filter: blur(4px);
+color: white; 
 }
 .forms{
 margin: 7px;
+font-size: 2rem;
+align-items: center;
 }
 input[type="text"].forms {
 margin-bottom: 5px;
 }
 .hidden{
 display: none;
+}
+input[type="text"].forms,
+input[type="password"].forms {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
 }

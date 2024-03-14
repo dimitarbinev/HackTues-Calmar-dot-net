@@ -3,6 +3,7 @@ package com.hacktues.persistence.controller;
 import com.hacktues.persistence.model.Entity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -12,10 +13,14 @@ public interface Controller {
 
     @RequestMapping
     @ResponseStatus(HttpStatus.OK)
-    ModelAndView showPage();
+    ModelAndView showMainPage();
+
+    @RequestMapping(value = "/login")
+    @ResponseStatus(HttpStatus.OK)
+    ModelAndView showLogin();
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    HttpStatus login(Entity credentials);
+    HttpStatus login(@RequestBody Entity credentials);
 
     @RequestMapping(value = "/register", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)

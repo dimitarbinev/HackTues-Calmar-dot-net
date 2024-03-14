@@ -5,6 +5,7 @@ import com.hacktues.persistence.model.Entity;
 import com.hacktues.persistence.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
@@ -15,17 +16,23 @@ public class ControllerImpl implements Controller {
     @Autowired
     private ServiceImpl service;
     @Override
-    public ModelAndView showPage() {
+    public ModelAndView showMainPage() {
         return service.showPage();
     }
 
     @Override
-    public HttpStatus login(Entity credentials) {
+    public ModelAndView showLogin() {
+        ModelAndView mav = new ModelAndView("login");
+        return mav;
+    }
+
+    @Override
+    public HttpStatus login( Entity credentials) {
         return service.login(credentials);
     }
 
     @Override
-    public void register(Entity credentials) {
+    public void register(@RequestBody Entity credentials) {
         service.register(credentials);
     }
 
