@@ -27,6 +27,12 @@ public class ControllerImpl implements Controller {
     }
 
     @Override
+    public ModelAndView showSignup() {
+        ModelAndView mav = new ModelAndView("signUp");
+        return mav;
+    }
+
+    @Override
     public HttpStatus login( Entity credentials) {
         return service.login(credentials);
     }
