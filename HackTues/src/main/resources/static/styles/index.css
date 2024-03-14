@@ -53,7 +53,7 @@ body {
 }
 
 #DACONTAINER {
-    text-align: center; /* Centers the text horizontally */
+    text-align: center; 
     display: flex;
     flex-direction: column;
 }
@@ -66,22 +66,22 @@ body {
 #message span {
     display: inline-block;
     color: hsl(126, 90%, 58%);;
-    opacity: 0; /* Start invisible */
-    margin-right: 2px; /* Small space between letters */
-    animation: fall 2s forwards; /* Animation that makes the letters "fall" */
+    opacity: 0; 
+    margin-right: 2px; 
+    animation: fall 2s forwards; 
 }
   
 @keyframes fall {
     0% {
         opacity: 0;
-        transform: translateY(-100px); /* Start above their final position */
+        transform: translateY(-100px); 
     }
     50% {
         opacity: 1;
     }
     100% {
         opacity: 1;
-        transform: translateY(0); /* End at their final position */
+        transform: translateY(0); 
     }
 }
 #message span:nth-child(1) { animation-delay: 0.0s; }
