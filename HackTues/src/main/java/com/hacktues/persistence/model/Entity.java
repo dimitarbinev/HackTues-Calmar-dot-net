@@ -1,13 +1,7 @@
 package com.hacktues.persistence.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 
-@Getter
-@Setter
-@ToString
 @Table(name = "users")
 @jakarta.persistence.Entity
 public class Entity {
@@ -15,8 +9,16 @@ public class Entity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    public String getUsername() {
+        return username;
+    }
+
     @Column(nullable = false, unique = true)
     private String username;
+
+    public String getPasswordHash() {
+        return passwordHash;
+    }
 
     @Column(nullable = false)
     private String passwordHash;
