@@ -6,7 +6,7 @@ function SignUpRedirect() {
 
   function LogInRedirect() {
 
-    window.location.href = '/static/templates/logIn.html';
+    window.location.href = '/api/hacktues/logIn';
   }
   
 
