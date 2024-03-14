@@ -1,47 +1,36 @@
-const Username = document.getElementsById("Username");
-const Password = document.getElementsById("Password");
-const Password2 = document.getElementsById("Password2");
-let invalid = document.getElementById("Invalid");
+const Username = document.getElementById("myUsername");
+const Password = document.getElementById("myPassword");
+const Password2 = document.getElementById("confirmPassword");
+let invalid = document.getElementById("InvalidLogin");
 
-
-addEventListener('submit', function(event) {
+document.querySelector('form').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    const UsernameValue = Username.value;
-    const PasswordValue = Password.value;
-    const Password2Value = Password2.value;
+    const UsernameValue = Username.value.trim();
+    const PasswordValue = Password.value.trim();
+    const Password2Value = Password2.value.trim();
 
-    if (PasswordValue==null || PasswordValue2==null || Password2Value!=PasswordValue) {
-    invalid.classList.remove('hidden');
-    } 
-    else {
+    if (!PasswordValue || !Password2Value || Password2Value !== PasswordValue) {
+        invalid.classList.remove('hidden');
+    } else {
         invalid.classList.add('hidden');
         
-       
-        const userData = {
-            username: UsernameValue,
-            password: PasswordValue
-        };
-
-        
-        fetch('your_json_file_url_here', {
+        fetch('your-backend-endpoint', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
             },
-            body: JSON.stringify(userData)
+            body: JSON.stringify({
+                username: UsernameValue,
+                password: PasswordValue,
+            }),
         })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
+        .then(response => response.json())
         .then(data => {
-            console.log('Data posted successfully:', data);
+            console.log('Success:', data);
         })
-        .catch(error => {
-            console.error('There was a problem posting the data:', error);
+        .catch((error) => {
+            console.error('Error:', error);
         });
     }
 });
