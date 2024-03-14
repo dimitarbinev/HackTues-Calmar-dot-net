@@ -6,7 +6,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('/images/dark-hexagonal-background-with-gradient-color_79603-1409.png');
+    background-image: url('../../resources/static/images/dark-hexagonal-background-with-gradient-color_79603-1409.png');
     background-size: cover; 
     background-position: center;
 }
@@ -20,13 +20,11 @@ body {
 .Mybuttons{
     border: 3px solid;
     border-radius: 15px;
-    background-color: hsl(88, 100%, 50%);
-    margin: 3px;
-    font-size: 25px; 
-}
-a{
+    background-color: hsl(313, 100%, 60%);
+    margin: 33px;
+    font-size: 25px;
+    cursor: pointer;
     text-decoration: none;
-    text-shadow: 0 0 3px #9b9999, 0 0 5px #0000FF;
 }
 #firstButton{
     width: 150px;
@@ -40,5 +38,9 @@ a{
 #buttonContainer{
     display: flex;
     flex-direction: row;
+}
+a{
+    text-decoration: none;
+    color: white;
 }
  
