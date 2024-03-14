@@ -7,5 +7,5 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 public interface Repo extends CrudRepository <Entity, Integer> {
-    List<Entity> findByUsername(String username);
+    boolean existsByUsername(String username);
 }
