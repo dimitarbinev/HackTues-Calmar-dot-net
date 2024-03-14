@@ -8,13 +8,10 @@ body, html {
     justify-content: center;
     align-items: center;
     background-image: url('/images/c754daf0-40cb-457c-bd1e-0e1c040f0817.jpg');
-<<<<<<< HEAD
-=======
     background-size: cover;
     background-position: center; 
     background-repeat: no-repeat;
     background-attachment: fixed;
->>>>>>> c9f133e992d5040ebabc304104e4816565fbd479
 }
 
 #formContainer {
