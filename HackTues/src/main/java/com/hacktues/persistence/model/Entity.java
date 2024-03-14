@@ -8,13 +8,16 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@Table(name = "test_table")
-@Entity
-public class TestEntity {
+@Table(name = "users")
+@jakarta.persistence.Entity
+public class Entity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @Column(nullable = false, unique = true)
-    private String name;
+    private String username;
+
+    @Column(nullable = false)
+    private String passwordHash;
 }
