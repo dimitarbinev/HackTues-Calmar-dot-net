@@ -63,14 +63,6 @@ body, html {
     margin: 20px 0; 
 }
 
-.forms input[type="submit"]:hover {
-    background-color: #45a049;
-    font-size: 0.9rem;
-    color: #666;
-    width: 100%; 
-    margin-bottom: 15px;
-}
-
 .hidden {
     display: none;
 }.forms input[type="text"],
@@ -88,9 +80,6 @@ body, html {
     margin: 20px 0;
 }
 
-.forms input[type="submit"]:hover {
-    background-color: #45a049;
-}
 .instructions {
     font-size: 0.9rem;
     color: #666;
