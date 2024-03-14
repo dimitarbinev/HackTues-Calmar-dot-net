@@ -17,7 +17,7 @@ public class ServiceImpl implements Service {
 
     @Override
     public ModelAndView showPage() {
-        ModelAndView mav = new ModelAndView("index");
+        ModelAndView mav = new ModelAndView("login");
         return mav;
     }
 
