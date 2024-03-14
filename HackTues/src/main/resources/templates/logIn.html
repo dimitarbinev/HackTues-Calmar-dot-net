@@ -1,22 +1,24 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="HackTues\src\main\resources\static\styles\style.css">
 </head>
 <body>
     <div id="formContainer">
-        <form id="myForm"  class="forms"> 
-        <label for="myUsername" class="forms"> Username: </label>
+        <form id="myForm" class="forms"> 
+        <label for="myUsername" class="forms"> username: </label>
         <input type="text" id="myUsername" class="forms"  placeholder="Mincho" required> <br>
-        <label for="myPassword" class="forms"> Password: </label> 
-        <input type="password" id="myPassword" class="forms" minlength="8" maxlength="30" placeholder="Mincho's password123" required> <br>
+        <label for="myPassword" class="forms"> password: </label> 
+        <input type="password" id="myPassword" class="forms" minlength="8" maxlength="30" required> 
+        <p id="InvalidLogin" class="hidden">Login credentials are invalid</p>
+        <br>
         <input type="submit" class="forms"> <br>
-    
+
         </form>
     </div>
-    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="HackTues\src\main\resources\static\scripts\script.js"></script>
 </body>
 </html>

@@ -1,21 +1,29 @@
 body{
-    background: red;
+
+    background-image: url('HackTues/src/main/resources/templates/images/dark-hexagonal-background-with-gradient-color_79603-1409.png');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+
 }
 #formContainer{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 45vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45vh;
 }
 #myForm{
-    padding: 20px;
-    border: 3px solid;
-    border-radius: 15px;
-    background-color: hsl(0, 0%, 60%);
+padding: 20px;
+border: 3px solid;
+border-radius: 15px;
+background-color: hsl(0, 0%, 60%);
 }
 .forms{
-    margin: 7px;
+margin: 7px;
 }
 input[type="text"].forms {
-    margin-bottom: 5px;
+margin-bottom: 5px;
+}
+.hidden{
+display: none;
 }
