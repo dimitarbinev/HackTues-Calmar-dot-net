@@ -1,3 +1,43 @@
-.Mybuttons{
-    background-color: red;
+html, body {
+    height: 100%; 
 }
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('HackTues\src\main\resources\static\images\dark-hexagonal-background-with-gradient-color_79603-1409.png');
+    background-size: cover; 
+    background-position: center;
+    }
+
+#buttonContainer{
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+}
+.Mybuttons{
+    border: 3px solid;
+    border-radius: 15px;
+    background-color: hsl(313, 100%, 60%);
+    margin: 3px;
+    font-size: 25px;
+}
+a{
+    text-decoration: none;
+}
+#firstButton{
+    width: 150px;
+    padding: 13px;
+}
+#secondButton{
+    width: 150px;
+    padding: 13px;
+
+}
+#buttonContainer{
+    display: flex;
+    flex-direction: row;
+}
+ 
