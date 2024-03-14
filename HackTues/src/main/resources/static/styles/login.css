@@ -1,41 +1,60 @@
-body{
-
-    background-image: url('../images/c754daf0-40cb-457c-bd1e-0e1c040f0817.jpg');
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-
-}
-#formContainer{
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 70vh;
+    background-image: url('/images/c754daf0-40cb-457c-bd1e-0e1c040f0817.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
-#myForm{
-padding: 20px;
-border: 3px solid;
-border-radius: 25px;
-background-color: hsla(0, 0%, 100%, 0.286);
-backdrop-filter: blur(4px);
-color: white; 
+
+#formContainer {
+    width: 50%;
+    min-width: 300px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: hsla(0, 0%, 100%, 0.286);
+    backdrop-filter: blur(4px);
 }
-.forms{
-margin: 7px;
-font-size: 2rem;
-align-items: center;
-}
-input[type="text"].forms {
-margin-bottom: 5px;
-}
-.hidden{
-display: none;
-}
-input[type="text"].forms,
-input[type="password"].forms {
+
+.forms {
     width: 100%;
+}
+
+.forms label {
+    display: inline-block;
+    width: 30%;
+    min-width: 100px;
+    white-space: nowrap;
+    margin: 5px 0;
+    font-weight: bold;
+}
+
+.forms input[type="text"],
+.forms input[type="password"],
+.forms input[type="submit"] {
+    width: 68%;
+    margin-bottom: 10px;
     padding: 8px;
-    margin-bottom: 5px;
-    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.forms input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    border: none;
+    width: auto;
+}
+
+.hidden {
+    display: none;
 }
