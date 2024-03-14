@@ -14,8 +14,14 @@ document.querySelector('form').addEventListener('submit', function(event) {
         invalid.classList.remove('hidden');
     } else {
         invalid.classList.add('hidden');
+
+        const userData = {
+            username: UsernameValue,
+            password: PasswordValue
+        };
+
         
-        fetch('your-backend-endpoint', {
+        fetch('http://localhost:6969/api/hacktues/signup', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
