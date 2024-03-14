@@ -2,11 +2,11 @@ function SignUpRedirect() {
 
     window.location.href = '/api/hacktues/signup';
   }
-  
+
 
   function LogInRedirect() {
 
-    window.location.href = '/templates/logIn.html';
+    window.location.href = '/static/templates/logIn.html';
   }
   
 
