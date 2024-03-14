@@ -20,12 +20,13 @@ body {
 .Mybuttons{
     border: 3px solid;
     border-radius: 15px;
-    background-color: hsl(313, 100%, 60%);
+    background-color: hsl(88, 100%, 50%);
     margin: 3px;
-    font-size: 25px;
+    font-size: 25px; 
 }
 a{
     text-decoration: none;
+    text-shadow: 0 0 3px #9b9999, 0 0 5px #0000FF;
 }
 #firstButton{
     width: 150px;
