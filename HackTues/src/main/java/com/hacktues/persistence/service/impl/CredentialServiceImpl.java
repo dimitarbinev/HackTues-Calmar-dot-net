@@ -67,10 +67,10 @@ public class CredentialServiceImpl implements CredentialService {
     public String getTags(String username) {
         CredentialEntity entity = repo.findByUsername(username);
         String json = String.format(
-                "{valorant: %s," +
-                " league_of_legends: %s," +
-                " rocket_league: %s," +
-                " brawl stars: %s}",
+                "{\"valorant\": %s," +
+                " \"league_of_legends\": %s," +
+                " \"rocket_league\": %s," +
+                " \"brawl_stars\": %s}",
                 entity.isValorant(),
                 entity.isLeague_of_legends(),
                 entity.isRocket_league(),
