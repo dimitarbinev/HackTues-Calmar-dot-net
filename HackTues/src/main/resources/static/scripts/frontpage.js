@@ -17,12 +17,13 @@ document.addEventListener('DOMContentLoaded', function() {
         checkboxes.forEach((checkbox, index) => {
             
             games[`game${index + 1}`] = checkbox.value;
+            console.log(games);
         });
 
         
 
         
-        fetch('http://localhost:6969/api/hacktues/', {
+        fetch('http://localhost:6969/api/hacktues/updatedata', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

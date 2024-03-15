@@ -2,7 +2,6 @@ package com.hacktues.controller.impl;
 
 import com.hacktues.controller.CredentialController;
 import com.hacktues.controller.model.Credential;
-import com.hacktues.persistence.model.CredentialEntity;
 import com.hacktues.persistence.service.impl.CredentialServiceImpl;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 @RequestMapping("/api/hacktues")
-public class ControllerImpl implements CredentialController {
+public class CredentialControllerImpl implements CredentialController {
     @Autowired
     private CredentialServiceImpl service;
     @Override
