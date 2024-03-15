@@ -42,7 +42,7 @@ public interface CredentialController {
     @ResponseStatus(HttpStatus.OK)
     HttpStatus updateData(HttpSession session, @RequestBody Credential credential);
 
-    @RequestMapping(value = "/getmappings")
+    @RequestMapping(value = "/gettags")
     @ResponseStatus(HttpStatus.OK)
     String getTags(HttpSession session);
 

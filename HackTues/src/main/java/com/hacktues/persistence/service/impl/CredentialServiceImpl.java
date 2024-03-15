@@ -65,8 +65,17 @@ public class CredentialServiceImpl implements CredentialService {
 
     @Override
     public String getTags(String username) {
-
-        return null;
+        CredentialEntity entity = repo.findByUsername(username);
+        String json = String.format(
+                "{valorant: %s," +
+                " league_of_legends: %s," +
+                " rocket_league: %s," +
+                " brawl stars: %s}",
+                entity.isValorant(),
+                entity.isLeague_of_legends(),
+                entity.isRocket_league(),
+                entity.isBrawl_stars());
+        return json;
     }
 
 
