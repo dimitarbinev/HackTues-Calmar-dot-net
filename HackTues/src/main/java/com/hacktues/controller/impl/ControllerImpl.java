@@ -4,6 +4,7 @@ import com.hacktues.controller.CredentialController;
 import com.hacktues.controller.model.Credential;
 import com.hacktues.persistence.model.CredentialEntity;
 import com.hacktues.persistence.service.impl.CredentialServiceImpl;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
@@ -35,8 +36,13 @@ public class ControllerImpl implements CredentialController {
     }
 
     @Override
-    public HttpStatus login(Credential credentials) {
-        return service.login(credentials);
+    public HttpStatus login(HttpSession session, Credential credentials) {
+        //String username = (String)session.getAttribute("username");
+        HttpStatus result = service.login(credentials);
+        if (result == HttpStatus.OK) {
+            session.setAttribute("username", credentials.getUsername());
+        }
+        return result;
     }
 
     @Override
@@ -46,6 +52,12 @@ public class ControllerImpl implements CredentialController {
         } catch (DataIntegrityViolationException e) {
             return HttpStatus.BAD_REQUEST;
         }
+        return HttpStatus.OK;
+    }
+
+    @Override
+    public HttpStatus updateData(Credential credential) {
+        service.updateData(credential);
         return HttpStatus.OK;
     }
 

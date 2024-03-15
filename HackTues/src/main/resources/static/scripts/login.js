@@ -26,7 +26,7 @@ form.addEventListener('submit', function(event) {
         return response.json();
     })
     .then(data => {
-        console.log('Success:', data);
+        console.log('Response:', data);
         if (data === 'OK') {
             console.log(data);
             loginInvalid.classList.add('hidden');
