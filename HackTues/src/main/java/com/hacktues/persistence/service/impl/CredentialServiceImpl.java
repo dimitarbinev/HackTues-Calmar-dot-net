@@ -1,9 +1,7 @@
 package com.hacktues.persistence.service.impl;
 
 import com.hacktues.controller.model.Credential;
-import com.hacktues.controller.model.Team;
 import com.hacktues.persistence.model.CredentialEntity;
-import com.hacktues.persistence.model.TeamEntity;
 import com.hacktues.persistence.repo.Repo;
 import com.hacktues.persistence.service.CredentialService;
 import lombok.extern.slf4j.Slf4j;
@@ -75,8 +73,8 @@ public class CredentialServiceImpl implements CredentialService {
                 " \"league_of_legends\": %s," +
                 " \"rocket_league\": %s," +
                 " \"brawl_stars\": %s," +
-                "\"discord\": %s," +
-                "\"about_me\": %s}",
+                "\"discord\": \"%s\"," +
+                "\"about_me\": \"%s\"}",
                 entity.isValorant(),
                 entity.isLeague_of_legends(),
                 entity.isRocket_league(),

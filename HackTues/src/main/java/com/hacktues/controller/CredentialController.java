@@ -1,7 +1,6 @@
 package com.hacktues.controller;
 
 import com.hacktues.controller.model.Credential;
-import com.hacktues.controller.model.Team;
 import com.hacktues.persistence.model.CredentialEntity;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.http.HttpStatus;
