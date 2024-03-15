@@ -3,20 +3,22 @@ document.addEventListener('DOMContentLoaded', function() {
     
     
     fetch('/api/hacktues/gettags')
-  .then(response => {
-    
-    if (!response.ok) {
-      throw new Error('Network response was not ok ' + response.statusText);
-    }
-    return response.json(); 
-  })
-  .then(data => {
-    console.log(data);
-  })
-  .catch(error => {
-    console.error('There was a problem with your fetch operation:', error);
-  });
-
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.text(); // First get the response text
+    })
+    .then(text => {
+      console.log(text); // Log the raw text
+      return JSON.parse(text); // Manually parse the text as JSON
+    })
+    .then(data => {
+      console.log(data); // Log the data
+    })
+    .catch(error => {
+      console.error('There was a problem with your fetch operation:', error);
+    });
 
 
     form.addEventListener('submit', function(event) {
