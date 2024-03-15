@@ -1,10 +1,10 @@
 body {
     font-family: Arial, sans-serif;
-    background-image: url('HackTues\src\main\resources\static\images\Frontpage.jpg');
+    background-image: url('\images\Frontpage.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    background-image: url('HackTues\src\main\resources\static\images\Frontpage.jpg');
+    background-image: url('\images\Frontpage.jpg');
    }
 .navbar {
     background-color: #333; overflow: hidden; position: relative; 

@@ -36,6 +36,12 @@ public class ControllerImpl implements CredentialController {
     }
 
     @Override
+    public ModelAndView showFrontpage() {
+        ModelAndView mav = new ModelAndView("frontpage");
+        return mav;
+    }
+
+    @Override
     public HttpStatus login(HttpSession session, Credential credentials) {
         //String username = (String)session.getAttribute("username");
         HttpStatus result = service.login(credentials);

@@ -24,6 +24,8 @@ form.addEventListener('submit', function(event) {
     .then(response => {
         if (!response.ok) {
             throw new Error('Network response was not ok');
+        } else {
+
         }
         return response.json();
     })
@@ -32,6 +34,7 @@ form.addEventListener('submit', function(event) {
         if (data === 'OK') {
             console.log(data);
             loginInvalid.classList.add('hidden');
+            window.location.href = '/api/hacktues/frontpage'
         } else {
             loginInvalid.classList.remove('hidden');
         }

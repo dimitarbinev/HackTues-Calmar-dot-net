@@ -24,6 +24,10 @@ public interface CredentialController {
     @ResponseStatus(HttpStatus.OK)
     ModelAndView showSignup();
 
+    @RequestMapping(value = "/frontpage")
+    @ResponseStatus(HttpStatus.OK)
+    ModelAndView showFrontpage();
+
     @RequestMapping(value = "/login", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     HttpStatus login(HttpSession session, @RequestBody Credential credentials);
 
