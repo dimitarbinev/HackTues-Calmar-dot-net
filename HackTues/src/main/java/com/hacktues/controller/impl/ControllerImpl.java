@@ -49,5 +49,11 @@ public class ControllerImpl implements CredentialController {
         return HttpStatus.OK;
     }
 
+    @Override
+    public HttpStatus updateData(Credential credential) {
+        service.updateData(credential);
+        return HttpStatus.OK;
+    }
+
 
 }

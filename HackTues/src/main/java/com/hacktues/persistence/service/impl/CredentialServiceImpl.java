@@ -44,4 +44,12 @@ public class CredentialServiceImpl implements CredentialService {
             return HttpStatus.OK;
         }
     }
+
+    @Override
+    public HttpStatus updateData(Credential credential) {
+        CredentialEntity entity = repo.findByUsername(credential.getUsername());
+        entity.setDiscord(credential.getDiscord());
+        repo.save(entity);
+        return HttpStatus.OK;
+    }
 }

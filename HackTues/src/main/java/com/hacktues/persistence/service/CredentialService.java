@@ -10,4 +10,6 @@ public interface CredentialService {
     HttpStatus login(Credential credentials);
 
     HttpStatus register(Credential credentials);
+
+    HttpStatus updateData(Credential credential);
 }
