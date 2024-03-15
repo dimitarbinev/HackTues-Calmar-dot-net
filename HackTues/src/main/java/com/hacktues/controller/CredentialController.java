@@ -1,6 +1,7 @@
 package com.hacktues.controller;
 
 import com.hacktues.controller.model.Credential;
+import com.hacktues.controller.model.Team;
 import com.hacktues.persistence.model.CredentialEntity;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.http.HttpStatus;
@@ -46,6 +47,9 @@ public interface CredentialController {
     @ResponseStatus(HttpStatus.OK)
     String getTags(HttpSession session);
 
+    @RequestMapping(value = "/createtable", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.OK)
+    HttpStatus createTable(HttpSession session, Team team);
 
 
     @RequestMapping(value = "/test")
