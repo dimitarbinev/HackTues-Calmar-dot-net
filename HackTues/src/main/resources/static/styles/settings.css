@@ -18,7 +18,7 @@ body {
     gap: 10px;
 }
 
-.game-item {
+.game-item, .input-item {
     margin: 10px;
 }
 
@@ -26,7 +26,7 @@ body {
     display: none;
 }
 
-.game-label {
+.game-label, .input-label {
     display: inline-flex;
     border: 2px solid #a34caf;
     border-radius: 20px;
@@ -71,4 +71,26 @@ body {
     background-color: #5e4caf; 
     color: white; 
     border-color: #5e4caf;
+}
+
+.input-label {
+    margin-bottom: 5px;
+    color: royalblue; /* Optional: matches your color scheme */
+    font-size: 1.3rem; /* Optional: to match your design */
+    user-select: none;
+}
+
+.input-text, .input-textarea {
+    width: 100%; /* Adjust as necessary */
+    padding: 10px;
+    border: 2px solid #a34caf; /* Matches your theme */
+    border-radius: 10px; /* Adjust as necessary */
+    font-size: 1rem; /* Adjust as necessary */
+    color: royalblue; /* Matches your theme */
+    background-color: transparent; /* For consistency */
+}
+
+.input-textarea {
+    height: 100px; /* Adjust based on your needs */
+    resize: vertical; /* Allows the user to adjust the textarea's height */
 }

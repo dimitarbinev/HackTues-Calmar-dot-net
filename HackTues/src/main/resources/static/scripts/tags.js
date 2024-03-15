@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('.games-list');
     
-    // Fetch and update checkboxes based on server data
+    // Fetch and update checkboxes and text inputs based on server data
     fetch('/api/hacktues/gettags')
     .then(response => {
         if (!response.ok) {
@@ -11,12 +11,14 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     .then(data => {
         // Iterate over the returned data and update checkboxes
-        for (const [name, isChecked] of Object.entries(data)) {
-            const checkbox = document.querySelector(`input[name="${name}"]`);
-            if (checkbox) {
-                checkbox.checked = isChecked;
+        for (const [name, value] of Object.entries(data)) {
+            const element = document.querySelector(`[name="${name}"]`);
+            if (element && element.type === 'checkbox') {
+                element.checked = value;
                 // Manually trigger a change event to update label styling
-                triggerChangeEvent(checkbox);
+                triggerChangeEvent(element);
+            } else if (element) {
+                element.value = value; // Set the value for text and textarea inputs
             }
         }
     })
@@ -29,12 +31,17 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault(); // Prevent the default form submission
 
         const data = {};
-        // Collect the current state of checkboxes
-        form.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-            data[checkbox.name] = checkbox.checked;
+        // Collect the current state of checkboxes and text inputs
+        form.querySelectorAll('input[type="checkbox"], input[type="text"], textarea').forEach(element => {
+            if (element.type === 'checkbox') {
+                data[element.name] = element.checked;
+            } else {
+                data[element.name] = element.value; // Collect data from text and textarea inputs
+            }
         });
 
         const jsonData = JSON.stringify(data); // Convert to JSON
+        console.log(jsonData);
 
         // Send the updated data to the server
         fetch('/api/hacktues/updatedata', {

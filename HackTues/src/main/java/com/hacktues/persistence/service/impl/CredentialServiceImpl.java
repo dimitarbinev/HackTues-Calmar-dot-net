@@ -1,7 +1,9 @@
 package com.hacktues.persistence.service.impl;
 
 import com.hacktues.controller.model.Credential;
+import com.hacktues.controller.model.Team;
 import com.hacktues.persistence.model.CredentialEntity;
+import com.hacktues.persistence.model.TeamEntity;
 import com.hacktues.persistence.repo.Repo;
 import com.hacktues.persistence.service.CredentialService;
 import lombok.extern.slf4j.Slf4j;
@@ -59,6 +61,8 @@ public class CredentialServiceImpl implements CredentialService {
         entity.setLeague_of_legends(credential.isLeague_of_legends());
         entity.setRocket_league(credential.isRocket_league());
         entity.setBrawl_stars(credential.isBrawl_stars());
+        entity.setDiscord(credential.getDiscord());
+        entity.setAbout_me(credential.getAbout_me());
         repo.save(entity);
         return HttpStatus.OK;
     }
@@ -70,11 +74,15 @@ public class CredentialServiceImpl implements CredentialService {
                 "{\"valorant\": %s," +
                 " \"league_of_legends\": %s," +
                 " \"rocket_league\": %s," +
-                " \"brawl_stars\": %s}",
+                " \"brawl_stars\": %s," +
+                "\"discord\": %s," +
+                "\"about_me\": %s}",
                 entity.isValorant(),
                 entity.isLeague_of_legends(),
                 entity.isRocket_league(),
-                entity.isBrawl_stars());
+                entity.isBrawl_stars(),
+                entity.getDiscord(),
+                entity.getAbout_me());
         return json;
     }
 
