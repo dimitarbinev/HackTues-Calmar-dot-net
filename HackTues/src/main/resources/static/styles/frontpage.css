@@ -14,10 +14,10 @@ body {
    position: fixed;
    top: 0;
    width: 100%;
-   z-index: 1000; / Ensures navbar stays on top /
+   z-index: 1000; 
    display: flex;
-   justify-content: flex-start; / Align hamburger to the left /
-   padding: 0 20px; / Add padding around the navbar content /
+   justify-content: flex-start; 
+   padding: 0 20px; 
 }
 
 .hamburger {
@@ -30,16 +30,16 @@ body {
 #dropdownMenu, #settingsPanel {
    display: none;
    position: fixed;
-   top: 60px; / Start below the navbar /
+   top: 60px; 
    padding-top: 20px;
-   z-index: 2; / Higher z-index to be above other content /
+   z-index: 2;
 }
 
 #dropdownMenu {
    background-color: #f9f9f9;
    min-width: 160px;
    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-   left: 0; / Align dropdown with the left edge of the navbar /
+   left: 0; 
 }
 
 .hamburger:hover + #dropdownMenu, #dropdownMenu:hover, #settingsPanel.active {
@@ -62,8 +62,8 @@ body {
    width: 250px;
    background-color: #333;
    overflow-x: hidden;
-   transition: left 0.5s; / Smooth transition for sliding effect /
-   bottom: 0; / Extend full height */
+   transition: left 0.5s; 
+   bottom: 0; 
 }
 
 #settingsPanel.active {
@@ -89,7 +89,7 @@ body {
    background-color: rgba(0, 0, 0, 0.5);
    cursor: pointer;
    display: flex;
-   align-items: center; / Center checkbox and label vertically /
+   align-items: center;
 }
 
 .game-checkbox {
@@ -104,7 +104,7 @@ form button[type="submit"] {
    border-radius: 5px;
    cursor: pointer;
    transition: background-color 0.3s, transform 0.2s;
-   margin-top: 20px; / Additional spacing */
+   margin-top: 20px;
 }
 
 form button[type="submit"]:hover {
