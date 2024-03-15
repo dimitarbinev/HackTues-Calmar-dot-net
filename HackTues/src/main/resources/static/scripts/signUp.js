@@ -28,9 +28,14 @@ document.querySelector('form').addEventListener('submit', function(event) {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(userData),
+            body: JSON.stringify(userData)
         })
-        .then(response => response.json())
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json(); // Parse JSON response into JavaScript object
+        })
         .then(data => {
             console.log('Success:', data);
             // Optionally, stop the animation or provide further user feedback here
