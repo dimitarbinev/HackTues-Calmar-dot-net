@@ -1,47 +1,49 @@
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('.games-list');
     
-    
+    // Fetch and update checkboxes and text inputs based on server data
     fetch('/api/hacktues/gettags')
     .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.text(); // First get the response text
-    })
-    .then(text => {
-      console.log(text); // Log the raw text
-      return JSON.parse(text); // Manually parse the text as JSON
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json(); // Parse the response as JSON
     })
     .then(data => {
-      console.log(data); // Log the data
+        // Iterate over the returned data and update checkboxes
+        for (const [name, value] of Object.entries(data)) {
+            const element = document.querySelector(`[name="${name}"]`);
+            if (element && element.type === 'checkbox') {
+                element.checked = value;
+                // Manually trigger a change event to update label styling
+                triggerChangeEvent(element);
+            } else if (element) {
+                element.value = value; // Set the value for text and textarea inputs
+            }
+        }
     })
     .catch(error => {
-      console.error('There was a problem with your fetch operation:', error);
+        console.error('There was a problem with your fetch operation:', error);
     });
 
-
+    // Handle form submission
     form.addEventListener('submit', function(event) {
-        // Prevent the form from submitting the traditional way
-        event.preventDefault();
+        event.preventDefault(); // Prevent the default form submission
 
-        // Gather the data from the form
-        const formData = new FormData(form);
         const data = {};
-        formData.forEach((key) => {
-            const checkboxes = document.getElementsByName(key);
-            if (checkboxes.length == 0) {
-                return;
+        // Collect the current state of checkboxes and text inputs
+        form.querySelectorAll('input[type="checkbox"], input[type="text"], textarea').forEach(element => {
+            if (element.type === 'checkbox') {
+                data[element.name] = element.checked;
+            } else {
+                data[element.name] = element.value; // Collect data from text and textarea inputs
             }
-
-            const isChecked = checkboxes[0].checked;
-            data[key] = isChecked;
         });
 
-        // Convert the JavaScript object to JSON
-        const jsonData = JSON.stringify(data);
+        const jsonData = JSON.stringify(data); // Convert to JSON
+        console.log(jsonData);
 
-        // Send the JSON data to the server
+        // Send the updated data to the server
         fetch('/api/hacktues/updatedata', {
             method: 'POST',
             headers: {
@@ -53,18 +55,23 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
+            return response.json(); // Assuming the server sends back a response
         })
-        .then(data => {
-            console.log('Success:', data);
+        .then(successData => {
+            console.log('Success:', successData);
+            // Optionally, handle the server's response data
         })
-        .catch((error) => {
+        .catch(error => {
             console.error('Error:', error);
         });
     });
-
-
-
-
-
-
 });
+
+// Function to manually trigger a change event for a given element
+function triggerChangeEvent(element) {
+    const event = new Event('change', {
+        'bubbles': true,
+        'cancelable': true
+    });
+    element.dispatchEvent(event);
+}
