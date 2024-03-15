@@ -74,11 +74,15 @@ public class CredentialServiceImpl implements CredentialService {
                 "{\"valorant\": %s," +
                 " \"league_of_legends\": %s," +
                 " \"rocket_league\": %s," +
-                " \"brawl_stars\": %s}",
+                " \"brawl_stars\": %s," +
+                "\"discord\": %s," +
+                "\"about_me\": %s}",
                 entity.isValorant(),
                 entity.isLeague_of_legends(),
                 entity.isRocket_league(),
-                entity.isBrawl_stars());
+                entity.isBrawl_stars(),
+                entity.getDiscord(),
+                entity.getAbout_me());
         return json;
     }
 

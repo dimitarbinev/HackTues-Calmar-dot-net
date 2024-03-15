@@ -47,11 +47,6 @@ public interface CredentialController {
     @ResponseStatus(HttpStatus.OK)
     String getTags(HttpSession session);
 
-    @RequestMapping(value = "/createtable", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(HttpStatus.OK)
-    HttpStatus createTable(HttpSession session, Team team);
-
-
     @RequestMapping(value = "/test")
     @ResponseStatus(HttpStatus.OK)
     HttpStatus test(HttpSession session);
