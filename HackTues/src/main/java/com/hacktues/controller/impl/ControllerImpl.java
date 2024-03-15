@@ -1,9 +1,11 @@
 package com.hacktues.controller.impl;
 
+import com.hacktues.controller.CredentialController;
 import com.hacktues.controller.model.Credential;
-import com.hacktues.controller.Controller;
-import com.hacktues.persistence.service.impl.CredentialCredentialServiceImpl;
+import com.hacktues.persistence.model.CredentialEntity;
+import com.hacktues.persistence.service.impl.CredentialServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,9 +14,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 @RequestMapping("/api/hacktues")
-public class ControllerImpl implements Controller {
+public class ControllerImpl implements CredentialController {
     @Autowired
-    private CredentialCredentialServiceImpl service;
+    private CredentialServiceImpl service;
     @Override
     public ModelAndView showMainPage() {
         return service.showPage();
@@ -38,8 +40,13 @@ public class ControllerImpl implements Controller {
     }
 
     @Override
-    public void register(@RequestBody Credential credentials) {
-        service.register(credentials);
+    public HttpStatus register(@RequestBody Credential credentials) {
+        try {
+            service.register(credentials);
+        } catch (DataIntegrityViolationException e) {
+            return HttpStatus.BAD_REQUEST;
+        }
+        return HttpStatus.OK;
     }
 
 

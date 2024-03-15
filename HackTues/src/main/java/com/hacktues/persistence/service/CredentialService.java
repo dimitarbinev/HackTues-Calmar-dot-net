@@ -9,5 +9,5 @@ public interface CredentialService {
 
     HttpStatus login(Credential credentials);
 
-    void register(Credential credentials);
+    HttpStatus register(Credential credentials);
 }
