@@ -2,6 +2,7 @@ package com.hacktues.controller;
 
 import com.hacktues.controller.model.Credential;
 import com.hacktues.persistence.model.CredentialEntity;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,14 +25,14 @@ public interface CredentialController {
     ModelAndView showSignup();
 
     @RequestMapping(value = "/login", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    HttpStatus login(@RequestBody Credential credentials);
+    HttpStatus login(HttpSession session, @RequestBody Credential credentials);
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    HttpStatus register(Credential credentials);
+    HttpStatus register(@RequestBody Credential credentials);
 
     @RequestMapping(value = "/updatedata", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    HttpStatus updateData(Credential credential);
+    HttpStatus updateData(@RequestBody Credential credential);
 
 }

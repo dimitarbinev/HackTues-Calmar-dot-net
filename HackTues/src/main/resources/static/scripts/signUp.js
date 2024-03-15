@@ -39,7 +39,7 @@ const Username = document.getElementById("myUsername");
                 return response.json();
             })
             .then(data => {
-                console.log('Success:', data);
+                console.log('Response:', data);
                 // Handle success (e.g., redirect or display a success message)
             })
             .catch((error) => {
