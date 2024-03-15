@@ -1,5 +1,23 @@
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('.games-list');
+    
+    
+    fetch('/api/hacktues/gettags')
+  .then(response => {
+    
+    if (!response.ok) {
+      throw new Error('Network response was not ok ' + response.statusText);
+    }
+    return response.json(); 
+  })
+  .then(data => {
+    console.log(data);
+  })
+  .catch(error => {
+    console.error('There was a problem with your fetch operation:', error);
+  });
+
+
 
     form.addEventListener('submit', function(event) {
         // Prevent the form from submitting the traditional way
@@ -8,10 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Gather the data from the form
         const formData = new FormData(form);
         const data = {};
-
-        // Assuming every input has a unique ID that serves as a key
-        formData.forEach((value, key) => {
-            // Convert checkbox checked state to boolean in JSON
+        formData.forEach((key) => {
             const checkboxes = document.getElementsByName(key);
             if (checkboxes.length == 0) {
                 return;
@@ -44,4 +59,10 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Error:', error);
         });
     });
+
+
+
+
+
+
 });
