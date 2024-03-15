@@ -51,17 +51,22 @@ public class CredentialControllerImpl implements CredentialController {
     }
 
     @Override
-    public HttpStatus register(@RequestBody Credential credentials) {
-        try {
-            service.register(credentials);
-        } catch (DataIntegrityViolationException e) {
-            return HttpStatus.BAD_REQUEST;
-        }
-        return HttpStatus.OK;
+    public HttpStatus register(HttpSession session, Credential credentials) {
+            if (service.register(credentials) == HttpStatus.OK) {
+                session.setAttribute("username", credentials.getUsername());
+                return HttpStatus.OK;
+            }
+
+        return HttpStatus.BAD_REQUEST;
     }
 
     @Override
-    public HttpStatus updateData(Credential credential) {
+    public HttpStatus updateData(HttpSession session, Credential credential) {
+        String username = (String)session.getAttribute("username");
+        if (username == null) {
+            return HttpStatus.UNAUTHORIZED;
+        }
+        credential.setUsername(username);
         service.updateData(credential);
         return HttpStatus.OK;
     }
