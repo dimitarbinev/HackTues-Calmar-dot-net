@@ -1,44 +1,52 @@
 const Username = document.getElementById("myUsername");
-const Password = document.getElementById("myPassword");
-const Password2 = document.getElementById("confirmPassword");
-let invalid = document.getElementById("InvalidLogin");
-const submitButton = document.querySelector('input[type="submit"]'); // Reference to the submit button
+        const Password = document.getElementById("myPassword");
+        const Password2 = document.getElementById("confirmPassword");
+        const UsernameTaken = document.getElementById("UsernameTaken");
+        const PasswordsDifferent = document.getElementById("PasswordsDifferent");
 
-document.querySelector('form').addEventListener('submit', function(event) {
-    event.preventDefault();
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault();
 
-    animateSubmitButton(); // Call to animate the submit button on form submit
+            const UsernameValue = Username.value.trim();
+            const PasswordValue = Password.value.trim();
+            const Password2Value = Password2.value.trim();
 
-    const UsernameValue = Username.value.trim();
-    const PasswordValue = Password.value.trim();
-    const Password2Value = Password2.value.trim();
+            // Hide previous error messages
+            UsernameTaken.classList.add('hidden');
+            PasswordsDifferent.classList.add('hidden');
 
-    if (!PasswordValue || !Password2Value || Password2Value !== PasswordValue) {
-        invalid.classList.remove('hidden');
-    } else {
-        invalid.classList.add('hidden');
+            if (!PasswordValue || !Password2Value || PasswordValue !== Password2Value) {
+                PasswordsDifferent.classList.remove('hidden');
+                return;
+            }
 
-        const userData = {
-            username: UsernameValue,
-            password: PasswordValue
-        };
+            const userData = {
+                username: UsernameValue,
+                password: PasswordValue
+            };
 
-        fetch('http://localhost:6969/api/hacktues/signup', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(userData),
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Success:', data);
-            // Optionally, stop the animation or provide further user feedback here
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-            // Handle errors or unsuccessful operations
+            fetch('http://localhost:6969/api/hacktues/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(userData),
+            })
+            .then(response => {
+                if (!response.ok) {
+                        throw new Error('Username is already taken');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Success:', data);
+                // Handle success (e.g., redirect or display a success message)
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                if (error.message === 'Username is already taken') {
+                    UsernameTaken.classList.remove('hidden');
+                }
+            });
         });
-    }
-});
 
