@@ -47,3 +47,19 @@
 <script src="/scripts/frontpage.js"></script>
 </body>
 </html>
+<div class="navbar">
+    <!-- Select dropdown for settings and other options -->
+    <select class="settings-dropdown" onchange="location = this.value;">
+        <option value="#">Menu</option> <!-- Placeholder option -->
+        <option value="/templates/settings">Settings</option>
+        <option value="/templates/about">About</option>
+        <!-- Add more options here as needed -->
+    </select>
+</div>
+<div class="navbar">
+    <button class="dropbtn" onclick="toggleDropdown()">Menu</button>
+    <div class="dropdown-content" id="dropdownContent">
+        <a href="/templates/settings" id="settings">Settings</a>
+        <a href="/templates/about" id="about">About</a>
+    </div>
+</div>
