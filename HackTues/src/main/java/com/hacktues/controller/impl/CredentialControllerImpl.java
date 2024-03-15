@@ -51,13 +51,12 @@ public class CredentialControllerImpl implements CredentialController {
     }
 
     @Override
-    public HttpStatus register(@RequestBody Credential credentials) {
-        try {
-            service.register(credentials);
-        } catch (DataIntegrityViolationException e) {
-            return HttpStatus.BAD_REQUEST;
-        }
-        return HttpStatus.OK;
+    public HttpStatus register(Credential credentials) {
+            if (service.register(credentials) == HttpStatus.OK) {
+                return HttpStatus.OK;
+            }
+
+        return HttpStatus.BAD_REQUEST;
     }
 
     @Override

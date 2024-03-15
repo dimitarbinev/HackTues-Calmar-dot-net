@@ -40,6 +40,11 @@ const Username = document.getElementById("myUsername");
             })
             .then(data => {
                 console.log('Response:', data);
+                if(data!='BAD_REQUEST')
+                {
+                window.location.href = '/api/hacktues/frontpage'
+                UsernameTaken.classList.remove('hidden');
+                }
                 // Handle success (e.g., redirect or display a success message)
             })
             .catch((error) => {
