@@ -7,8 +7,6 @@ const submitButton = form.querySelector('input[type="submit"]'); // Reference to
 form.addEventListener('submit', function(event) {
     event.preventDefault();
 
-    animateSubmitButton(); // Animate the submit button on form submission
-
     const data = {
         username: input.value,
         password: password.value,
@@ -41,10 +39,3 @@ form.addEventListener('submit', function(event) {
         loginInvalid.classList.remove('hidden');
     });
 });
-
-function animateSubmitButton() {
-    submitButton.style.transform = 'scale(0.8)';
-    setTimeout(() => {
-        submitButton.style.transform = 'scale(1)';
-    }, 200); 
-}
