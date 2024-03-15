@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Slf4j
 @Service
-public class CredentialCredentialServiceImpl implements CredentialService {
+public class CredentialServiceImpl implements CredentialService {
 
     @Autowired
     private Repo repo;
@@ -34,9 +34,14 @@ public class CredentialCredentialServiceImpl implements CredentialService {
     }
 
     @Override
-    public void register(Credential credential) {
-        CredentialEntity credentialEntity =
-                new CredentialEntity(credential.getUsername(), credential.getPassword());
-        repo.save(credentialEntity);
+    public HttpStatus register(Credential credential) {
+        if (repo.existsByUsername(credential.getUsername())) {
+            return HttpStatus.BAD_REQUEST;
+        } else {
+            CredentialEntity credentialEntity =
+                    new CredentialEntity(credential.getUsername(), credential.getPassword());
+            repo.save(credentialEntity);
+            return HttpStatus.OK;
+        }
     }
 }
