@@ -51,8 +51,9 @@ public class CredentialControllerImpl implements CredentialController {
     }
 
     @Override
-    public HttpStatus register(Credential credentials) {
+    public HttpStatus register(HttpSession session, Credential credentials) {
             if (service.register(credentials) == HttpStatus.OK) {
+                session.setAttribute("username", credentials.getUsername());
                 return HttpStatus.OK;
             }
 
@@ -60,7 +61,12 @@ public class CredentialControllerImpl implements CredentialController {
     }
 
     @Override
-    public HttpStatus updateData(Credential credential) {
+    public HttpStatus updateData(HttpSession session, Credential credential) {
+        String username = (String)session.getAttribute("username");
+        if (username == null) {
+            return HttpStatus.UNAUTHORIZED;
+        }
+        credential.setUsername(username);
         service.updateData(credential);
         return HttpStatus.OK;
     }

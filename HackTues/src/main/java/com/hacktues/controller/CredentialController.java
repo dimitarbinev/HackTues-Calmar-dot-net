@@ -33,10 +33,10 @@ public interface CredentialController {
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    HttpStatus register(@RequestBody Credential credentials);
+    HttpStatus register(HttpSession session, @RequestBody Credential credentials);
 
     @RequestMapping(value = "/updatedata", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    HttpStatus updateData(@RequestBody Credential credential);
+    HttpStatus updateData(HttpSession session, @RequestBody Credential credential);
 
 }
