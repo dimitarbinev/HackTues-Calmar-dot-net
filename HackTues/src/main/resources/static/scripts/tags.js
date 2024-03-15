@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Gather the data from the form
         const formData = new FormData(form);
         const data = {};
-        formData.forEach((key) => {
+        formData.forEach((_, key) => {
             const checkboxes = document.getElementsByName(key);
             if (checkboxes.length == 0) {
                 return;
