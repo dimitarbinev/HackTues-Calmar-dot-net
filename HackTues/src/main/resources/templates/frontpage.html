@@ -3,30 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <title>Game Matchmaking</title>
-    <link rel="stylesheet" href="../static/styles/frontpage.css">
+    <link rel="stylesheet" href="frontpage.css">
 </head>
 <body>
 
 <div class="navbar">
-    <div class="hamburger" onclick="toggleMenu()">☰</div>
-    <input type="text" placeholder="Search for teammates...">
+    <div class="hamburger">☰</div>
+    <div id="dropdownMenu" class="hidden">
+        <a href="#about">About</a> <!-- Moved About here, remove Themes -->
+        <a href="#settings" class="settings-trigger">Settings</a>
+    </div>
 </div>
 
-<div id="dropdownMenu" class="hidden">
-    <a href="#home">Home</a>
-    <a href="#settings">Settings</a>
-    <a href="#account">Account</a>
-    <a href="#about">About</a>
-</div>
+<form id="gameSelectionForm" action="/submit-games" method="post">
+    <div class="game-selection">
+        <label class="game" data-game="League of Legends">
+            <input type="checkbox" class="game-checkbox" name="games[]" value="League of Legends">
+            League of Legends
+        </label>
+        <label class="game" data-game="Valorant">
+            <input type="checkbox" class="game-checkbox" name="games[]" value="Valorant">
+            Valorant
+        </label>
+        <label class="game" data-game="Rocket League">
+            <input type="checkbox" class="game-checkbox" name="games[]" value="Rocket League">
+            Rocket League
+        </label>
+        <label class="game" data-game="Brawl Stars">
+            <input type="checkbox" class="game-checkbox" name="games[]" value="Brawl Stars">
+            Brawl Stars
+        </label>
+    </div>
+    <div style="text-align: center;"> <!-- Center the submit button -->
+        <button type="submit">Submit</button>
+    </div>
+</form>
 
-<div class="game-selection">
-    <div class="game" data-game="League of Legends">League of Legends</div>
-    <div class="game" data-game="Valorant">Valorant</div>
-    <div class="game" data-game="Rocket League">Rocket League</div>
-    <div class="game" data-game="Brawl Stars">Brawl Stars</div>
-</div>
-
-<script src="/scripts/script.js"></script>
-
+<script src="frontpage.js">
+</script>
 </body>
 </html>
