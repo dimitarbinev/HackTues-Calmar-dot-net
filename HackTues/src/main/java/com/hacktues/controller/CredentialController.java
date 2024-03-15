@@ -39,4 +39,7 @@ public interface CredentialController {
     @ResponseStatus(HttpStatus.OK)
     HttpStatus updateData(HttpSession session, @RequestBody Credential credential);
 
+    @RequestMapping(value = "/test")
+    @ResponseStatus(HttpStatus.OK)
+    HttpStatus test(HttpSession session);
 }

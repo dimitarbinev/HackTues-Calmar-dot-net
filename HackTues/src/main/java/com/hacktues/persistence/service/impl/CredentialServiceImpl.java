@@ -10,6 +10,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 @Slf4j
 @Service
 public class CredentialServiceImpl implements CredentialService {
@@ -25,12 +28,15 @@ public class CredentialServiceImpl implements CredentialService {
 
     @Override
     public HttpStatus login(Credential credential) {
-        if (repo.existsByUsername(credential.getUsername()) &&
-                repo.existsByPassword(credential.getPassword())) {
-            return HttpStatus.OK;
-        } else {
+        CredentialEntity entity = repo.findByUsername(credential.getUsername());
+        if (entity == null) {
             return HttpStatus.NOT_FOUND;
         }
+        String password = hashPassword(credential.getPassword());
+        if (!entity.getPassword().equals(password)) {
+            return HttpStatus.NOT_FOUND;
+        }
+        return HttpStatus.OK;
     }
 
     @Override
@@ -38,8 +44,9 @@ public class CredentialServiceImpl implements CredentialService {
         if (repo.existsByUsername(credential.getUsername())) {
             return HttpStatus.BAD_REQUEST;
         } else {
+            String password = hashPassword(credential.getPassword());
             CredentialEntity credentialEntity =
-                    new CredentialEntity(credential.getUsername(), credential.getPassword());
+                    new CredentialEntity(credential.getUsername(), password);
             repo.save(credentialEntity);
             return HttpStatus.OK;
         }
@@ -51,5 +58,21 @@ public class CredentialServiceImpl implements CredentialService {
         entity.setDiscord(credential.getDiscord());
         repo.save(entity);
         return HttpStatus.OK;
+    }
+
+    private static String hashPassword(String password) {
+        MessageDigest md = null;
+        try {
+            md = MessageDigest.getInstance("SHA-256");
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+        md.update(password.getBytes());
+        byte[] bytes = md.digest();
+        StringBuilder sb = new StringBuilder();
+        for (byte b : bytes) {
+            sb.append(String.format("%02x", b));
+        }
+        return sb.toString();
     }
 }

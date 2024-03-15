@@ -71,5 +71,12 @@ public class CredentialControllerImpl implements CredentialController {
         return HttpStatus.OK;
     }
 
+    @Override
+    public HttpStatus test(HttpSession session) {
+        Credential credential = new Credential();
+        credential.setDiscord("ala bala");
+        return updateData(session, credential);
+    }
+
 
 }
