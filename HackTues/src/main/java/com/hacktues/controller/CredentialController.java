@@ -15,6 +15,9 @@ public interface CredentialController {
     @ResponseStatus(HttpStatus.OK)
     ModelAndView showMainPage();
 
+    @RequestMapping(value = "/settings")
+    @ResponseStatus(HttpStatus.OK)
+    ModelAndView showSettings(HttpSession httpSession);
 
     @RequestMapping(value = "/login")
     @ResponseStatus(HttpStatus.OK)
@@ -26,7 +29,7 @@ public interface CredentialController {
 
     @RequestMapping(value = "/frontpage")
     @ResponseStatus(HttpStatus.OK)
-    ModelAndView showFrontpage();
+    ModelAndView showFrontpage(HttpSession session);
 
     @RequestMapping(value = "/login", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     HttpStatus login(HttpSession session, @RequestBody Credential credentials);
@@ -38,6 +41,10 @@ public interface CredentialController {
     @RequestMapping(value = "/updatedata", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     HttpStatus updateData(HttpSession session, @RequestBody Credential credential);
+
+    @RequestMapping(value = "/getmappings")
+    @ResponseStatus(HttpStatus.OK)
+    String getTags(HttpSession session);
 
     @RequestMapping(value = "/test")
     @ResponseStatus(HttpStatus.OK)

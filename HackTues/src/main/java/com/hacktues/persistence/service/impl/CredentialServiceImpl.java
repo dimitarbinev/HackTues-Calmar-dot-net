@@ -55,10 +55,20 @@ public class CredentialServiceImpl implements CredentialService {
     @Override
     public HttpStatus updateData(Credential credential) {
         CredentialEntity entity = repo.findByUsername(credential.getUsername());
-        entity.setDiscord(credential.getDiscord());
+        entity.setValorant(credential.isValorant());
+        entity.setLeague_of_legends(credential.isLeague_of_legends());
+        entity.setRocket_league(credential.isRocket_league());
+        entity.setBrawl_stars(credential.isBrawl_stars());
         repo.save(entity);
         return HttpStatus.OK;
     }
+
+    @Override
+    public String getTags(String username) {
+
+        return null;
+    }
+
 
     private static String hashPassword(String password) {
         MessageDigest md = null;

@@ -12,4 +12,6 @@ public interface CredentialService {
     HttpStatus register(Credential credentials);
 
     HttpStatus updateData(Credential credential);
+
+    String getTags(String username);
 }

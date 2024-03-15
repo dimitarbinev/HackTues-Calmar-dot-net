@@ -25,7 +25,7 @@ const Username = document.getElementById("myUsername");
                 password: PasswordValue
             };
 
-            fetch('http://localhost:6969/api/hacktues/signup', {
+            fetch('/api/hacktues/signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

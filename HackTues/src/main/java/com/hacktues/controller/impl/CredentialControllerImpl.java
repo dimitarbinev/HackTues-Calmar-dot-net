@@ -2,6 +2,7 @@ package com.hacktues.controller.impl;
 
 import com.hacktues.controller.CredentialController;
 import com.hacktues.controller.model.Credential;
+import com.hacktues.persistence.model.CredentialEntity;
 import com.hacktues.persistence.service.impl.CredentialServiceImpl;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,20 @@ public class CredentialControllerImpl implements CredentialController {
     }
 
     @Override
+    public ModelAndView showSettings(HttpSession session) {
+        String viewName;
+        String username = (String)session.getAttribute("username");
+        if (username == null) {
+            viewName = "index";
+        } else {
+            viewName = "settings";
+        }
+
+        ModelAndView mav = new ModelAndView(viewName);
+        return mav;
+    }
+
+    @Override
     public ModelAndView showLogin() {
         ModelAndView mav = new ModelAndView("login");
         return mav;
@@ -35,8 +50,15 @@ public class CredentialControllerImpl implements CredentialController {
     }
 
     @Override
-    public ModelAndView showFrontpage() {
-        ModelAndView mav = new ModelAndView("frontpage");
+    public ModelAndView showFrontpage(HttpSession session) {
+        String viewName;
+        if ((String)session.getAttribute("username") == null) {
+            viewName = "index";
+        } else {
+            viewName = "frontpage";
+        }
+
+        ModelAndView mav = new ModelAndView(viewName);
         return mav;
     }
 
@@ -69,6 +91,16 @@ public class CredentialControllerImpl implements CredentialController {
         credential.setUsername(username);
         service.updateData(credential);
         return HttpStatus.OK;
+    }
+
+    @Override
+    public String getTags(HttpSession session) {
+        String username = (String)session.getAttribute("username");
+        if (username == null) {
+            return "{}";
+        }
+        String result = service.getTags(username);
+        return result;
     }
 
     @Override

@@ -12,7 +12,12 @@ document.addEventListener('DOMContentLoaded', function() {
         // Assuming every input has a unique ID that serves as a key
         formData.forEach((value, key) => {
             // Convert checkbox checked state to boolean in JSON
-            const isChecked = document.getElementById(key).checked;
+            const checkboxes = document.getElementsByName(key);
+            if (checkboxes.length == 0) {
+                return;
+            }
+
+            const isChecked = checkboxes[0].checked;
             data[key] = isChecked;
         });
 
