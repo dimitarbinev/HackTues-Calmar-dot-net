@@ -4,7 +4,14 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    background-image: url('tags.jpg');
+<<<<<<< HEAD
+    background-image: url('/images/tags.jpg');
+=======
+    background-image: url('/images/settings_image.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+>>>>>>> 1593c6a999901f6f0f17f2380d45e093d956e2fb
 }
 
 .games-list {
