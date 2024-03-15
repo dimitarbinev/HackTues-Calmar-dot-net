@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
 
         
-        fetch('XXXXXXXXXXXXXX', {
+        fetch('http://localhost:6969/api/hacktues/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
