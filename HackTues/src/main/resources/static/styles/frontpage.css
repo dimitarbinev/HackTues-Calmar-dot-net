@@ -4,16 +4,9 @@ html, body {
    margin: 0;
    padding: 0;
    overflow: hidden; /* Hides the scrollbar on the entire page */
-}
-
-/* Body styling with full-page background image setup */
-body {
    font-family: Arial, sans-serif;
-   padding-top: 60px; /* Adjust this based on your navbar's height */
-   position: relative; /* For z-index positioning */
 }
 
-/* Blurred background image */
 body::before {
    content: '';
    position: fixed;
@@ -30,7 +23,6 @@ body::before {
    z-index: -1;
 }
 
-/* Navbar styling */
 .navbar {
    background-color: #333;
    overflow: hidden;
@@ -40,7 +32,6 @@ body::before {
    z-index: 1000;
 }
 
-/* Dropdown button styling */
 .dropdown {
    position: absolute;
    top: 15px;
@@ -56,7 +47,6 @@ body::before {
    cursor: pointer;
 }
 
-/* Dropdown content styling */
 .dropdown-content {
    visibility: hidden;
    opacity: 0;
@@ -76,16 +66,16 @@ body::before {
    display: block;
 }
 
-.dropdown-content a:hover {background-color: #f1f1f1}
+.dropdown-content a:hover {
+   background-color: #f1f1f1;
+}
 
-/* Show dropdown content on hover */
-.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-content, .dropdown:focus-within .dropdown-content {
    visibility: visible;
    opacity: 1;
    transform: translateY(0);
 }
 
-/* Search container styling */
 .search-container {
    display: flex;
    justify-content: center;
@@ -113,24 +103,27 @@ body::before {
    font-size: 17px;
 }
 
-/* Game container styling for centered images */
 .game-container {
    display: flex;
-   flex-direction: row; /* Default direction */
-   justify-content: center; /* Centers items on the main axis */
-   align-items: center; /* Centers items on the cross axis */
-   flex-wrap: wrap; /* Allows items to wrap as needed */
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   flex-wrap: nowrap;
    padding: 20px;
-   margin-top: 20px; /* Reduced margin-top to position images higher */
-   overflow-y: auto; /* Allows for vertical scrolling within the container */
+   margin-top: 60px; /* Adjust based on the search container's final position */
+   overflow-y: auto;
+}
+.game-container a{
+   width: 20%;
+   justify-content: space-between;
+   margin: 30px;
 }
 
-/* Game image styling */
 .game-image {
-   width: 18%;
-   height: auto;
+   width: 100%; /* Increased from 18% to make images bigger */
+   height: 100%;
    object-fit: cover;
-   margin: 10px;
+   margin: 20px; /* Increased margin for better spacing */
    border: 3px solid #ffffff;
    box-shadow: 0px 4px 8px 0 rgba(0,0,0,0.2);
    transition: transform 0.3s ease;
@@ -140,17 +133,16 @@ body::before {
    transform: scale(1.05); /* Enlarge on hover */
 }
 
-/* Media query for responsiveness */
 @media screen and (max-width: 768px) {
    .game-container {
-       flex-direction: column; /* Stack images vertically on smaller screens */
+       flex-direction: column;
    }
-
    .game-image {
-       width: 80%; /* Larger width for better visibility */
+       width: 80%;
        margin: 20px auto; /* Increased space and centered horizontally */
    }
 }
+
 .settings-dropdown {
    padding: 10px;
    margin: 10px;
@@ -160,37 +152,7 @@ body::before {
    cursor: pointer;
 }
 
-/* Optionally style the dropdown options */
 .settings-dropdown option {
    background-color: white;
    color: black;
-}
-.dropbtn {
-   background-color: #4CAF50;
-   color: white;
-   padding: 16px;
-   font-size: 16px;
-   border: none;
-   cursor: pointer;
-}
-
-/* Dropdown Content */
-.dropdown-content {
-   display: none;
-   position: absolute;
-   background-color: #f9f9f9;
-   min-width: 160px;
-   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-   z-index: 1;
-}
-
-.dropdown-content a {
-   color: black;
-   padding: 12px 16px;
-   text-decoration: none;
-   display: block;
-}
-
-.dropdown-content a:hover {
-   background-color: #f1f1f1;
 }
