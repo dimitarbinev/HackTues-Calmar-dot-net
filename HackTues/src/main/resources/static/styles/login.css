@@ -23,7 +23,9 @@ body, html {
     background-color: hsla(0, 0%, 100%, 0.286);
     backdrop-filter: blur(4px);
 }
-
+#InvalidLogin{
+    background-color: tomato;
+}
 .forms {
     width: 100%;
 }

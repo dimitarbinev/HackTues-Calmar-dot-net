@@ -2,7 +2,6 @@ package com.hacktues.controller.impl;
 
 import com.hacktues.controller.CredentialController;
 import com.hacktues.controller.model.Credential;
-import com.hacktues.persistence.model.CredentialEntity;
 import com.hacktues.persistence.service.impl.CredentialServiceImpl;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 @RequestMapping("/api/hacktues")
-public class ControllerImpl implements CredentialController {
+public class CredentialControllerImpl implements CredentialController {
     @Autowired
     private CredentialServiceImpl service;
     @Override
@@ -52,17 +51,22 @@ public class ControllerImpl implements CredentialController {
     }
 
     @Override
-    public HttpStatus register(@RequestBody Credential credentials) {
-        try {
-            service.register(credentials);
-        } catch (DataIntegrityViolationException e) {
-            return HttpStatus.BAD_REQUEST;
-        }
-        return HttpStatus.OK;
+    public HttpStatus register(HttpSession session, Credential credentials) {
+            if (service.register(credentials) == HttpStatus.OK) {
+                session.setAttribute("username", credentials.getUsername());
+                return HttpStatus.OK;
+            }
+
+        return HttpStatus.BAD_REQUEST;
     }
 
     @Override
-    public HttpStatus updateData(Credential credential) {
+    public HttpStatus updateData(HttpSession session, Credential credential) {
+        String username = (String)session.getAttribute("username");
+        if (username == null) {
+            return HttpStatus.UNAUTHORIZED;
+        }
+        credential.setUsername(username);
         service.updateData(credential);
         return HttpStatus.OK;
     }

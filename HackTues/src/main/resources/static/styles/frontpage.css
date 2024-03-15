@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-image: url('\images\frontpage.jpg');
+    background-image: url('/images/frontpage.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -11,104 +11,80 @@ body {
    position: fixed;
    top: 0;
    width: 100%;
-   z-index: 1000; 
+   z-index: 1000;
    display: flex;
-   justify-content: flex-start; 
-   padding: 0 20px; 
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+   margin: 0;
+   background-image: url('Frontpage.jpg');
+   background-size: cover; 
+   background-position: center;
+   overflow: hidden;
 }
 
-.hamburger {
+.dropdown {
+   position: absolute;
+   top: 0;
+   left: 0;
+}
+
+.dropbtn {
+   background-color: #4CAF50;
    color: white;
-   padding: 14px 20px;
+   padding: 16px;
+   font-size: 16px;
+   border: none;
    cursor: pointer;
-   text-align: center;
 }
 
-#dropdownMenu, #settingsPanel {
-   display: none;
-   position: fixed;
-   top: 60px; 
-   padding-top: 20px;
-   z-index: 2;
-}
-
-#dropdownMenu {
+.dropdown-content {
+   visibility: hidden; 
+   opacity: 0; 
+   position: absolute;
    background-color: #f9f9f9;
    min-width: 160px;
    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-   left: 0; 
+   z-index: 1;
+   transform: translateX(-100%);
+   transition: visibility 0s, opacity 0.5s linear, transform 0.5s;
 }
 
-.hamburger:hover + #dropdownMenu, #dropdownMenu:hover, #settingsPanel.active {
-   display: block;
-}
-
-#dropdownMenu a, #settingsPanel.active a {
+.dropdown-content a {
    color: black;
    padding: 12px 16px;
    text-decoration: none;
    display: block;
 }
 
-#dropdownMenu a:hover {
-   background-color: #ddd;
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+   visibility: visible; 
+   opacity: 1; 
+   transform: translateX(0); 
+   transition-delay: 0s, 0s, 0s; 
 }
 
-#settingsPanel {
-   left: -250px;
-   width: 250px;
-   background-color: #333;
-   overflow-x: hidden;
-   transition: left 0.5s; 
-   bottom: 0; 
-}
-
-#settingsPanel.active {
-   left: 0;
-}
-.game-selection {
-   background-color: rgba(255, 255, 255, 0.2);
-   backdrop-filter: blur(10px);
-   padding: 20px;
-   border-radius: 10px;
-   margin: 60px auto 20px;
+.search-container {
    display: flex;
-   flex-wrap: wrap;
    justify-content: center;
-}
-
-.game {
-   flex-basis: 30%;
-   margin: 10px;
-   padding: 20px;
-   border: 1px solid #ddd;
-   border-radius: 4px;
-   background-color: rgba(0, 0, 0, 0.5);
-   cursor: pointer;
-   display: flex;
    align-items: center;
 }
 
-.game-checkbox {
+.search-container input[type=text] {
+   padding: 10px;
    margin-right: 10px;
+   font-size: 17px;
+   border: 1px solid grey;
+   width: 350px;
 }
 
-form button[type="submit"] {
-   background-color: #007bff;
+.search-container button {
+   padding: 10px;
+   background-color: #4CAF50;
    color: white;
-   padding: 15px 30px;
-   font-size: 20px;
-   border-radius: 5px;
    cursor: pointer;
-   transition: background-color 0.3s, transform 0.2s;
-   margin-top: 20px;
-}
-
-form button[type="submit"]:hover {
-   background-color: #0056b3;
-   transform: scale(1.05);
-}
-
-form button[type="submit"]:active {
-   transform: scale(0.95);
+   border: none;
+   font-size: 17px;
 }
