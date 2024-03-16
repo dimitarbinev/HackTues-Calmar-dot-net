@@ -1,17 +1,17 @@
 function selectBrawlStars() {
-    fetchPlayersByGame('brawl_stars');
+    fetchPlayersByGame('listBrawlStars');
 }
 
 function selectLeagueOfLegends() {
-    fetchPlayersByGame('league_of_legends');
+    fetchPlayersByGame('listLeague_of_legends');
 }
 
 function selectRocketLeague() {
-    fetchPlayersByGame('rocket_league');
+    fetchPlayersByGame('listRocket_league');
 }
 
 function selectValorant() {
-    fetchPlayersByGame('valorant');
+    fetchPlayersByGame('listValorant');
 }
 function fetchPlayersByGame(game) {
     const API_URL = `/api/hacktues/${game}`; // Adjust the API URL as necessary
