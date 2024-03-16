@@ -22,39 +22,20 @@
     </div>
     
     <div class="game-container">
-        <!-- Wrap each image in an <a> tag without additional divs for spacing -->
-        <a href="/api/hacktues/settings" class="image-link">
+        <a class="image-link" onclick="selectBrawlStars()">
             <img src="/images/Brawl_stars.jpg" alt="Brawl Stars" class="game-image">
         </a>
-        <a href="/api/hacktues/settings" class="image-link">
+        <a class="image-link" onclick="selectLeagueOfLegends()">
             <img src="/images/leaguepage.jpg" alt="League of Legends" class="game-image">
         </a>
-        <a href="/api/hacktues/settings" class="image-link">
+        <a class="image-link" onclick="selectRocketLeague()">
             <img src="/images/Rocket league.jpg" alt="Rocket League" class="game-image">
         </a>
-        <a href="/api/hacktues/settings" class="image-link">
+        <a class="image-link" onclick="selectValorant()">
             <img src="/images/Valorantpage.jpg" alt="Valorant" class="game-image">
         </a>
-    </div>  
-
-<script src="frontpage.js">
-    function toggleDropdown() {
-        var dropdown = document.getElementById("dropdownContent");
-        if (dropdown.style.display === "block") {
-            dropdown.style.display = "none";
-        } else {
-            dropdown.style.display = "block";
-        }
-    }
-</script>
-<div class="navbar">
-    <div class="dropdown">
-        <button class="dropbtn" onclick="toggleDropdown()">Menu</button>
-        <div class="dropdown-content" id="dropdownContent">
-            <a href="/templates/settings">Settings</a>
-            <a href="/templates/about">About</a>
-        </div>
     </div>
-</div>
+
+<script src="/scripts/frontpage.js">   </script>
 </body>
 </html>
