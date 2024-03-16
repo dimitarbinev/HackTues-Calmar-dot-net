@@ -10,36 +10,22 @@
 
     <div class="navbar">
         <a href="/api/hacktues/settings" class="dropbtn">Settings</a>
-    <div class="search-container">
-        <input type="text" placeholder="Search..." name="search">
-        <button type="submit">Submit</button>
     </div>
-    
     <div class="game-container">
-        <!-- Wrap each image in an <a> tag without additional divs for spacing -->
-        <a href="/api/hacktues/settings" class="image-link">
+        <a class="image-link" onclick="selectBrawlStars()">
             <img src="/images/Brawl_stars.jpg" alt="Brawl Stars" class="game-image">
         </a>
-        <a href="/api/hacktues/settings" class="image-link">
+        <a class="image-link" onclick="selectLeagueOfLegends()">
             <img src="/images/leaguepage.jpg" alt="League of Legends" class="game-image">
         </a>
-        <a href="/api/hacktues/settings" class="image-link">
+        <a class="image-link" onclick="selectRocketLeague()">
             <img src="/images/Rocket league.jpg" alt="Rocket League" class="game-image">
         </a>
-        <a href="/api/hacktues/settings" class="image-link">
+        <a class="image-link" onclick="selectValorant()">
             <img src="/images/Valorantpage.jpg" alt="Valorant" class="game-image">
         </a>
-    </div>  
+    </div>
 
-<script src="frontpage.js">
-    function toggleDropdown() {
-        var dropdown = document.getElementById("dropdownContent");
-        if (dropdown.style.display === "block") {
-            dropdown.style.display = "none";
-        } else {
-            dropdown.style.display = "block";
-        }
-    }
-</script>
+<script src="/scripts/frontpage.js">   </script>
 </body>
 </html>

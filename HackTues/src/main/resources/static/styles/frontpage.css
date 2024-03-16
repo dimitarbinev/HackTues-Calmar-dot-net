@@ -38,33 +38,6 @@ body::before {
    cursor: pointer;
 }
 
-.search-container {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   position: fixed;
-   width: 100%;
-   top: 20px;
-   z-index: 1001;
-}
-
-.search-container input[type=text] {
-   padding: 10px;
-   margin-right: 10px;
-   font-size: 17px;
-   border: 1px solid grey;
-   width: 350px;
-}
-
-.search-container button {
-   padding: 10px;
-   background-color: #4CAF50;
-   color: white;
-   cursor: pointer;
-   border: none;
-   font-size: 17px;
-}
-
 .game-container {
    display: flex;
    flex-direction: row;
