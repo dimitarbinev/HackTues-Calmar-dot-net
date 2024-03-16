@@ -52,15 +52,15 @@ public interface CredentialController {
     @ResponseStatus(HttpStatus.OK)
     List<CredentialEntity> listBrawlStars();
 
-    @RequestMapping(value = "/listvalorant")
+    @RequestMapping(value = "/listValorant")
     @ResponseStatus(HttpStatus.OK)
     List<CredentialEntity> listValorant();
 
-    @RequestMapping(value = "/listleague_of_legends")
+    @RequestMapping(value = "/listLeague_of_legends")
     @ResponseStatus(HttpStatus.OK)
     List<CredentialEntity> listLeagueOfLegends();
 
-    @RequestMapping(value = "/listrocket_league")
+    @RequestMapping(value = "/listRocket_league")
     @ResponseStatus(HttpStatus.OK)
     List<CredentialEntity> listRocketLeague();
 
