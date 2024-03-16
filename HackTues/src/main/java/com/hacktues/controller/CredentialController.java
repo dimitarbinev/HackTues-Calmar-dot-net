@@ -46,10 +46,7 @@ public interface CredentialController {
     @ResponseStatus(HttpStatus.OK)
     String getTags(HttpSession session);
 
-    @RequestMapping(value = "/gettags")
-    @ResponseStatus(HttpStatus.OK)
-    String userSearch(HttpSession session);
-    
+
     @RequestMapping(value = "/test")
     @ResponseStatus(HttpStatus.OK)
     HttpStatus test(HttpSession session);
