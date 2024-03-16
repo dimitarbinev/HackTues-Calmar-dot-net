@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Iterator;
 import java.util.List;
 
 @Slf4j
@@ -57,11 +58,11 @@ public class CredentialServiceImpl implements CredentialService {
     public HttpStatus updateData(Credential credential) {
         CredentialEntity entity = repo.findByUsername(credential.getUsername());
         entity.setValorant(credential.isValorant());
-        entity.setLeague_of_legends(credential.isLeague_of_legends());
-        entity.setRocket_league(credential.isRocket_league());
-        entity.setBrawl_stars(credential.isBrawl_stars());
+        entity.setLeagueoflegends(credential.isLeague_of_legends());
+        entity.setRocketleague(credential.isRocket_league());
+        entity.setBrawlstars(credential.isBrawl_stars());
         entity.setDiscord(credential.getDiscord());
-        entity.setAbout_me(credential.getAbout_me());
+        entity.setAboutme(credential.getAbout_me());
         repo.save(entity);
         return HttpStatus.OK;
     }
@@ -77,33 +78,38 @@ public class CredentialServiceImpl implements CredentialService {
                 "\"discord\": \"%s\"," +
                 "\"about_me\": \"%s\"}",
                 entity.isValorant(),
-                entity.isLeague_of_legends(),
-                entity.isRocket_league(),
-                entity.isBrawl_stars(),
+                entity.isLeagueoflegends(),
+                entity.isRocketleague(),
+                entity.isBrawlstars(),
                 entity.getDiscord(),
-                entity.getAbout_me());
+                entity.getAboutme());
         return json;
     }
 
     @Override
-    public List<CredentialEntity> listBrawlStars() {
-        return repo.findByBrawlStars(true);
+    public Iterable<CredentialEntity> listAll() {
+        return repo.findAll();
     }
 
-    @Override
-    public List<CredentialEntity> listValorant() {
-        return repo.findByValorant(true);
-    }
+//    @Override
+//    public List<CredentialEntity> listBrawlStars() {
+//        return repo.findByBrawlStars(true);
+//    }
 
-    @Override
-    public List<CredentialEntity> listLeagueOfLegends() {
-        return repo.findByLeague_of_legends(true);
-    }
-
-    @Override
-    public List<CredentialEntity> listRocketLeague() {
-        return repo.findByRocket_league(true);
-    }
+//    @Override
+//    public List<CredentialEntity> listValorant() {
+//        return repo.findByValorant(true);
+//    }
+//
+//    @Override
+//    public List<CredentialEntity> listLeagueoflegends() {
+//        return repo.findByLeagueoflegends(true);
+//    }
+//
+//    @Override
+//    public List<CredentialEntity> listRocketLeague() {
+//        return repo.findByRocketleague(true);
+//    }
 
 
     private static String hashPassword(String password) {

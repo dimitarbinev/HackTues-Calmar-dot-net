@@ -104,26 +104,31 @@ public class CredentialControllerImpl implements CredentialController {
     }
 
     @Override
-    public List<CredentialEntity> listBrawlStars() {
-        return service.listBrawlStars();
+    public Iterable<CredentialEntity> listAll() {
+        return service.listAll();
     }
 
-    @Override
-    public List<CredentialEntity> listValorant() {
-        return service.listValorant();
+//    @Override
+//    public List<CredentialEntity> listBrawlStars() {
+//        return service.listBrawlStars();
+//    }
 
-    }
-
-    @Override
-    public List<CredentialEntity> listLeagueOfLegends() {
-        return service.listLeagueOfLegends();
-
-    }
-
-    @Override
-    public List<CredentialEntity> listRocketLeague() {
-        return service.listRocketLeague();
-    }
+//    @Override
+//    public List<CredentialEntity> listValorant() {
+//        return service.listValorant();
+//
+//    }
+//
+//    @Override
+//    public List<CredentialEntity> listLeagueOfLegends() {
+//        return service.listLeagueoflegends();
+//
+//    }
+//
+//    @Override
+//    public List<CredentialEntity> listRocketLeague() {
+//        return service.listRocketLeague();
+//    }
 
     @Override
     public HttpStatus test(HttpSession session) {

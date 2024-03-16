@@ -48,21 +48,25 @@ public interface CredentialController {
     @ResponseStatus(HttpStatus.OK)
     String getTags(HttpSession session);
 
-    @RequestMapping(value = "/listBrawlStars")
+    @RequestMapping(value = "/list")
     @ResponseStatus(HttpStatus.OK)
-    List<CredentialEntity> listBrawlStars();
+    Iterable<CredentialEntity> listAll();
 
-    @RequestMapping(value = "/listValorant")
-    @ResponseStatus(HttpStatus.OK)
-    List<CredentialEntity> listValorant();
+//    @RequestMapping(value = "/listBrawlstars")
+//    @ResponseStatus(HttpStatus.OK)
+//    List<CredentialEntity> listBrawlStars();
 
-    @RequestMapping(value = "/listLeague_of_legends")
-    @ResponseStatus(HttpStatus.OK)
-    List<CredentialEntity> listLeagueOfLegends();
-
-    @RequestMapping(value = "/listRocket_league")
-    @ResponseStatus(HttpStatus.OK)
-    List<CredentialEntity> listRocketLeague();
+//    @RequestMapping(value = "/listValorant")
+//    @ResponseStatus(HttpStatus.OK)
+//    List<CredentialEntity> listValorant();
+//
+//    @RequestMapping(value = "/listLeagueoflegends")
+//    @ResponseStatus(HttpStatus.OK)
+//    List<CredentialEntity> listLeagueOfLegends();
+//
+//    @RequestMapping(value = "/listRocketleague")
+//    @ResponseStatus(HttpStatus.OK)
+//    List<CredentialEntity> listRocketLeague();
 
     @RequestMapping(value = "/test")
     @ResponseStatus(HttpStatus.OK)

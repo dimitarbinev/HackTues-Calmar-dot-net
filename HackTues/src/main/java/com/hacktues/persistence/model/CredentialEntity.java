@@ -2,8 +2,6 @@ package com.hacktues.persistence.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 @Data
 @Table(name = "users")
@@ -14,22 +12,22 @@ public class CredentialEntity {
         this.username = "";
         this.password = "";
         this.valorant = false;
-        this.league_of_legends = false;
-        this.rocket_league = false;
-        this.brawl_stars = false;
+        this.leagueoflegends = false;
+        this.rocketleague = false;
+        this.brawlstars = false;
         this.discord = "";
-        this.about_me = "";
+        this.aboutme = "";
     }
 
     public CredentialEntity(String username, String password) {
         this.username = username;
         this.password = password;
         this.valorant = false;
-        this.league_of_legends = false;
-        this.rocket_league = false;
-        this.brawl_stars = false;
+        this.leagueoflegends = false;
+        this.rocketleague = false;
+        this.brawlstars = false;
         this.discord = "";
-        this.about_me = "";
+        this.aboutme = "";
     }
 
     @Id
@@ -46,17 +44,17 @@ public class CredentialEntity {
     private boolean valorant;
 
     @Column (nullable = false)
-    private boolean league_of_legends;
+    private boolean leagueoflegends;
 
     @Column (nullable = false)
-    private boolean rocket_league;
+    private boolean rocketleague;
 
     @Column (nullable = false)
-    private boolean brawl_stars;
+    private boolean brawlstars;
 
     @Column (nullable = false)
     private String discord;
 
     @Column (nullable = false)
-    private String about_me;
+    private String aboutme;
 }

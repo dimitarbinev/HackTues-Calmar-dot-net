@@ -1,21 +1,21 @@
-function selectBrawlStars() {
-    fetchPlayersByGame('listBrawlStars');
-}
-
-function selectLeagueOfLegends() {
-    fetchPlayersByGame('listLeague_of_legends');
-}
-
-function selectRocketLeague() {
-    fetchPlayersByGame('listRocket_league');
-}
-
-function selectValorant() {
-    fetchPlayersByGame('listValorant');
-}
+//function selectBrawlStars() {
+//    fetchPlayersByGame('brawl_stars');
+//}
+//
+//function selectLeagueOfLegends() {
+//    fetchPlayersByGame('league_of_legends');
+//}
+//
+//function selectRocketLeague() {
+//    fetchPlayersByGame('rocket_league');
+//}
+//
+//function selectValorant() {
+//    fetchPlayersByGame('valorant');
+//}
 function fetchPlayersByGame(game) {
     const API_URL = `/api/hacktues/${game}`; // Adjust the API URL as necessary
-    fetch(API_URL)
+    fetch("/api/hacktues/list")
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');

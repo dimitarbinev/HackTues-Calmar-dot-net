@@ -18,9 +18,11 @@ public interface CredentialService {
 
     String getTags(String username);
 
-    List<CredentialEntity> listBrawlStars();
-    List<CredentialEntity> listValorant();
-    List<CredentialEntity> listLeagueOfLegends();
-    List<CredentialEntity> listRocketLeague();
+    Iterable<CredentialEntity> listAll();
+
+//    List<CredentialEntity> listBrawlStars();
+//    List<CredentialEntity> listValorant();
+//    List<CredentialEntity> listLeagueoflegends();
+//    List<CredentialEntity> listRocketLeague();
 
 }
