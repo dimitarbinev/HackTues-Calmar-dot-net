@@ -2,6 +2,7 @@ package com.hacktues.controller.impl;
 
 import com.hacktues.controller.CredentialController;
 import com.hacktues.controller.model.Credential;
+import com.hacktues.persistence.model.CredentialEntity;
 import com.hacktues.persistence.service.impl.CredentialServiceImpl;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/hacktues")
@@ -100,6 +103,27 @@ public class CredentialControllerImpl implements CredentialController {
         return result;
     }
 
+    @Override
+    public List<CredentialEntity> listBrawlStars() {
+        return service.listBrawlStars();
+    }
+
+    @Override
+    public List<CredentialEntity> listValorant() {
+        return service.listValorant();
+
+    }
+
+    @Override
+    public List<CredentialEntity> listLeagueOfLegends() {
+        return service.listLeagueOfLegends();
+
+    }
+
+    @Override
+    public List<CredentialEntity> listRocketLeague() {
+        return service.listRocketLeague();
+    }
 
     @Override
     public HttpStatus test(HttpSession session) {

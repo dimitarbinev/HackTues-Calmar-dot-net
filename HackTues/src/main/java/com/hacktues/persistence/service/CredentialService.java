@@ -1,8 +1,11 @@
 package com.hacktues.persistence.service;
 
 import com.hacktues.controller.model.Credential;
+import com.hacktues.persistence.model.CredentialEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 public interface CredentialService {
     ModelAndView showPage();
@@ -14,5 +17,10 @@ public interface CredentialService {
     HttpStatus updateData(Credential credential);
 
     String getTags(String username);
+
+    List<CredentialEntity> listBrawlStars();
+    List<CredentialEntity> listValorant();
+    List<CredentialEntity> listLeagueOfLegends();
+    List<CredentialEntity> listRocketLeague();
 
 }

@@ -9,6 +9,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 public interface CredentialController {
 
     @RequestMapping
@@ -46,6 +48,21 @@ public interface CredentialController {
     @ResponseStatus(HttpStatus.OK)
     String getTags(HttpSession session);
 
+    @RequestMapping(value = "/listBrawlStars")
+    @ResponseStatus(HttpStatus.OK)
+    List<CredentialEntity> listBrawlStars();
+
+    @RequestMapping(value = "/listvalorant")
+    @ResponseStatus(HttpStatus.OK)
+    List<CredentialEntity> listValorant();
+
+    @RequestMapping(value = "/listleague_of_legends")
+    @ResponseStatus(HttpStatus.OK)
+    List<CredentialEntity> listLeagueOfLegends();
+
+    @RequestMapping(value = "/listrocket_league")
+    @ResponseStatus(HttpStatus.OK)
+    List<CredentialEntity> listRocketLeague();
 
     @RequestMapping(value = "/test")
     @ResponseStatus(HttpStatus.OK)

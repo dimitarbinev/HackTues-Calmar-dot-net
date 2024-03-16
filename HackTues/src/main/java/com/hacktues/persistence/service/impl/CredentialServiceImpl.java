@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 @Slf4j
 @Service
@@ -82,6 +83,26 @@ public class CredentialServiceImpl implements CredentialService {
                 entity.getDiscord(),
                 entity.getAbout_me());
         return json;
+    }
+
+    @Override
+    public List<CredentialEntity> listBrawlStars() {
+        return repo.findByBrawlStars(true);
+    }
+
+    @Override
+    public List<CredentialEntity> listValorant() {
+        return repo.findByValorant(true);
+    }
+
+    @Override
+    public List<CredentialEntity> listLeagueOfLegends() {
+        return repo.findByLeague_of_legends(true);
+    }
+
+    @Override
+    public List<CredentialEntity> listRocketLeague() {
+        return repo.findByRocket_league(true);
     }
 
 
